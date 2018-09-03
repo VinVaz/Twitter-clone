@@ -1,0 +1,40 @@
+{
+  "name": "twitter-clone",
+  "version": "1.0.0",
+  "dependencies": {
+    "ajv": "^6.5.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "prop-types": "^15.6.2",
+    "react-redux": "^5.0.7",
+    "react-test-renderer": "^16.4.2",
+    "redux": "^4.0.0"
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VinVaz/Twitter-clone.git"
+  },
+  "author": "Vinicius Vaz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VinVaz/Twitter-clone/issues"
+  },
+  "homepage": "https://github.com/VinVaz/Twitter-clone#readme"
+}
