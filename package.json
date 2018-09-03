@@ -4,6 +4,7 @@
   "dependencies": {
     "ajv": "^6.5.1",
     "eslint-config-airbnb": "^17.1.0",
+    "jest-cli": "^23.5.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"
@@ -12,7 +13,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "lint": "eslint website/src/**/*.js website/src/**/*.jsx",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
