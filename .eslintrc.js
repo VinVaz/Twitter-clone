@@ -3,7 +3,10 @@ module.exports = {
         "browser": true,
         "node": true
     },
-    "extends": "airbnb",
+    "extends": [
+      "airbnb",
+      "jest-enzyme"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
