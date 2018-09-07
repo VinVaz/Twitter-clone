@@ -1,18 +1,19 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import connectedApp from '../website/containers/container';
 import App from '../website/components/App';
 import Containers from '../website/containers';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import { createTweet } from '../website/actions';
 import rootReducer from '../website/reducers';
 
 
-let wrapper, store;
+let wrapper; let
+  store;
 beforeAll(() => {
   store = createStore(rootReducer);
-  wrapper = mount(<Provider store={ store }><Containers /></Provider>);
+  wrapper = mount(<Provider store={store}><Containers /></Provider>);
 });
 it('react/redux should render one container', () => {
   expect(wrapper.find(Containers)).toHaveLength(1);
