@@ -4,39 +4,49 @@ import HeaderProfileButton from './HeaderProfileButton';
 import HeaderTweetButton from './HeaderTweetButton';
 import HeaderHomeButton from './HeaderHomeButton';
 
-const HeaderStyle = {
+const ContainerStyle = {
+  position: 'fixed',
   boxSizing:'border-box',
-  height: '60px',
-  backgroundColor: '#0000a7',
+  height: '50px',
+  backgroundColor: '#707084',
   padding: '5px',
   display: 'flex',
-  alignItems: 'stretch',
-};
-const SearchStyle = {
-  width: '50%',
-  backgroundColor: '#1060a7',
-};
-const TweetBoxStyle = {
-  width: '12%',
-  backgroundColor: '#b06017',
+  zIndex: '1',
 };
 const HomeBoxStyle = {
-  width: '26%',
-  backgroundColor: '#a0a017',
+  width: '120px',
+  flexShrink:'0',
+  textAlign: 'center',
+  margin: 'auto',
+};
+const SearchBoxStyle = {
+  minWidth: '300px',
+  width: '58vw',
+  textAlign: 'center',
+  flexShrink:'1',
+  margin: 'auto',
 };
 const ProfileBoxStyle = {
-  width: '12%',
-  backgroundColor: '#006017',
+  width: '15vw',
+  minWidth: '100px',
+  textAlign: 'center',
+  margin: 'auto',
+};
+const TweetBoxStyle = {
+  width: '15vw',
+  minWidth: '100px',
+  textAlign: 'center',
+  margin: 'auto',
 };
 
 class Header extends Component {
   render() {
     return (
-      <div style={ HeaderStyle }>
+      <div style={ ContainerStyle }>
         <div style={HomeBoxStyle}>
           <HeaderHomeButton/>
         </div>
-        <div style={SearchStyle}>
+        <div style={SearchBoxStyle}>
           <HeaderSearcher />
         </div>
         <div style={ProfileBoxStyle}>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import UserBox from './UserBox';
 
 const UserSpaceStyle = {
-  width: '30%',
   padding: '20px',
   display: 'flex',
   flexDirection: 'column',
@@ -11,7 +10,7 @@ const UserSpaceStyle = {
 class UserSpace extends Component {
   render() {
     return (
-      <div style={UserSpaceStyle}>
+      <div style={ UserSpaceStyle }>
         <UserBox />
       </div>
     );

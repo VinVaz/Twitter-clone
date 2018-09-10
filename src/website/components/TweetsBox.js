@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
+import NewTweets from './NewTweets';
+import Tweet from './Tweet';
+import TweetInputBox from './TweetInputBox';
 
 const TweetsBoxStyle = {
-  //height is just a test
-  height:'1200px',
-  width:'70%',
+  backgroundColor: '#ababab',
   boxSizing: 'border-box',
-  padding: '20px',
-  backgroundColor: '#a4d2e2',
-}
+  minWidth: '300px',
+  display: 'flex',
+  flexDirection: 'column',
+};
 
 class TweetsBox extends Component {
   render() {
     return (
-      <div style={TweetsBoxStyle}>
-        <p>tweets space</p>
+      <div style={ TweetsBoxStyle }>
+        <TweetInputBox />
+        <NewTweets />
+        <Tweet />
+        <Tweet />
+        <Tweet />
+        <Tweet />
       </div>
     );
   }

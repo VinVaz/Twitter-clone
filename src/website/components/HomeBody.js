@@ -4,16 +4,15 @@ import UserSpace from './UserSpace';
 import TweetsBox from './TweetsBox';
 
 const HomeBodyStyle = {
-  boxSizing: 'border-box',
-  padding: '20px',
-  backgroundColor: '#e4a212',
+  padding: '70px 20px 20px 20px',
+  backgroundColor: '#e4c612',
   display: 'flex',
 }
 
 class HomeBody extends Component {
   render() {
     return (
-      <div style={HomeBodyStyle}>
+      <div style={ HomeBodyStyle }>
         <UserSpace />
         <TweetsBox />
       </div>
