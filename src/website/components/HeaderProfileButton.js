@@ -3,7 +3,8 @@ import Header from './Header';
 
 class HeaderProfileButton extends Component {
   render() {
-    return (<button>Profile</button>);
+  const { handleProfileBox } = this.props;
+    return (<button onClick = { () => handleProfileBox() }>Profile</button>);
   }
 }
 

@@ -3,12 +3,13 @@ import HeaderSearcher from './HeaderSearcher';
 import HeaderProfileButton from './HeaderProfileButton';
 import HeaderTweetButton from './HeaderTweetButton';
 import HeaderHomeButton from './HeaderHomeButton';
+import ProfileView from './ProfileView';
 
 const ContainerStyle = {
   position: 'fixed',
   boxSizing:'border-box',
   height: '50px',
-  backgroundColor: '#707084',
+  backgroundColor: '#4f5368',
   padding: '5px',
   display: 'flex',
   zIndex: '1',
@@ -41,6 +42,11 @@ const TweetBoxStyle = {
 
 class Header extends Component {
   render() {
+    const {
+      profileBoxShowing,
+      handleProfileBox,
+    } = this.props;
+    
     return (
       <div style={ ContainerStyle }>
         <div style={HomeBoxStyle}>
@@ -50,7 +56,8 @@ class Header extends Component {
           <HeaderSearcher />
         </div>
         <div style={ProfileBoxStyle}>
-          <HeaderProfileButton/>
+          <HeaderProfileButton handleProfileBox={ handleProfileBox }/>
+          {profileBoxShowing ? <ProfileView /> : null }
         </div>
         <div style={TweetBoxStyle}>
           <HeaderTweetButton/>

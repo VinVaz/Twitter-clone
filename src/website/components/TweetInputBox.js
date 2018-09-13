@@ -4,7 +4,9 @@ import TweetInput from './TweetInput'
 class TweetInputBox extends Component {
   returnTweetInput() {
     return (
-      <p>simplified version</p>
+      <div>
+        <div>profile</div>
+      </div>
     );
   }
   render() {

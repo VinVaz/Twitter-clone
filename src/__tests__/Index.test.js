@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import App from '../website/components/App';
+import App from '../website/App';
 import { createTweet } from '../website/actions';
 import rootReducer from '../website/reducers';
 
@@ -11,13 +11,11 @@ const initialState = { output: 100 };
 const mockStore = configureStore();
 
 it('react should render the aplication', () => {
-  const wrapper = shallow(<App />);
-  expect(wrapper.text()).toEqual('Welcome to React');
+  expect(shallow(<App />)).toHaveLength(1);
 });
 
 describe('react and redux integration', () => {
-  let wrapper; let
-    store;
+  let wrapper, store;
   beforeEach(() => {
     store = mockStore(initialState);
     wrapper = shallow(<Provider store={store}><App /></Provider>);

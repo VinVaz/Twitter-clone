@@ -5,7 +5,7 @@ import TweetsBox from './TweetsBox';
 
 const HomeBodyStyle = {
   padding: '70px 20px 20px 20px',
-  backgroundColor: '#e4c612',
+  backgroundColor: '#f2f3ff',
   display: 'flex',
 }
 

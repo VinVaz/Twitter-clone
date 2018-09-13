@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from '../components/App';
+import App from '../App';
 import {
   createTweet,
   searchTwitter,
@@ -10,6 +10,9 @@ import {
   replyTweet,
   retweet,
   followSomeone,
+  handleThread,
+  handleNewTweets,
+  handleProfileBox,
 } from '../actions';
 
 const mapStateToProps = state => ({
@@ -22,6 +25,9 @@ const mapStateToProps = state => ({
   replayTweetPressed: state.interaction.replayTweetPressed,
   retweetPressed: state.interaction.retweetPressed,
   followButtonPressed: state.interaction.followButtonPressed,
+  threadShowing: state.view.threadShowing,
+  newTweetsButtonShowing: state.view.newTweetsButtonShowing,
+  profileBoxShowing: state.view.profileBoxShowing,
 });
 const mapDispatchToProps = dispatch => ({
   createTweet: text => dispatch(createTweet(text)),
@@ -33,6 +39,9 @@ const mapDispatchToProps = dispatch => ({
   replyTweet: () => dispatch(replyTweet()),
   retweet: () => dispatch(retweet()),
   followSomeone: () => dispatch(followSomeone()),
+  handleThread: () => dispatch(handleThread()),
+  handleNewTweets: () => dispatch(handleNewTweets()),
+  handleProfileBox: () => dispatch(handleProfileBox()),
 });
 
 export default connect(

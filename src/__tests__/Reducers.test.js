@@ -2,6 +2,7 @@ import { tweet } from '../website/reducers/tweet';
 import { search } from '../website/reducers/search';
 import { user } from '../website/reducers/user';
 import { interaction } from '../website/reducers/interaction';
+import { view } from '../website/reducers/view';
 import reducers from '../website/reducers/index';
 import * as actions from '../website/actions/index';
 
@@ -20,11 +21,17 @@ const interactionInitialState = {
   retweetPressed: false,
   followButtonPressed: false,
 };
+const viewInitialState = {
+  profileBoxShowing: false,
+  threadShowing: false,
+  newTweetsButtonShowing: false,
+};
 const reducersInitialState = {
   tweet: tweetInitialState,
   search: searchInitialState,
   user: userInitialState,
   interaction: interactionInitialState,
+  view: viewInitialState,
 };
 
 describe('Test reducers', () => {
@@ -123,14 +130,15 @@ describe('Test reducers', () => {
   });
   it('reducers should handle SEARCH_TWITTER', () => {
     const combinedState = {
-      tweet: tweetInitialState,
+      ...reducersInitialState,
       search: randomName,
-      user: userInitialState,
-      interaction: interactionInitialState,
     };
     expect(reducers(undefined, {
       type: actions.SEARCH_TWITTER,
       name: randomName,
     })).toEqual(combinedState);
+  });
+  it('view should handle HANDLE_THREAD', () => {
+    expect(view(undefined, {})).toEqual(viewInitialState);
   });
 });

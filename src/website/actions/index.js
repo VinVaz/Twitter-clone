@@ -7,8 +7,19 @@ export const LIKE_TWEET = 'LIKE_TWEET';
 export const REPLY_TWEET = 'REPLY_TWEET';
 export const RETWEET = 'RETWEET';
 export const FOLLOW_SOMEONE = 'FOLLOW_SOMEONE';
+export const HANDLE_THREAD = 'GET_THREAD';
+export const HANDLE_NEWTWEETS = 'HANDLE_NEWTWEETS';
+export const HANDLE_PROFILEBOX = 'HANDLE_PROFILEBOX';
 
-
+export const handleThread = () => ({
+  type: HANDLE_THREAD,
+});
+export const handleNewTweets = () => ({
+  type: HANDLE_NEWTWEETS,
+});
+export const handleProfileBox = () => ({
+  type: HANDLE_PROFILEBOX,
+});
 export const getTweets = () => ({
   type: GET_TWEETS,
 });

@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
 import NewTweets from './NewTweets';
-import Tweet from './Tweet';
+import Tweets from './Tweets';
 import TweetInputBox from './TweetInputBox';
 
-const TweetsBoxStyle = {
-  backgroundColor: '#ababab',
-  boxSizing: 'border-box',
+const ContainerStyle = {
   minWidth: '300px',
   display: 'flex',
   flexDirection: 'column',
 };
 
 class TweetsBox extends Component {
+  state = {
+    hasNewTweets: true,
+  }
   render() {
     return (
-      <div style={ TweetsBoxStyle }>
+      <div style={ ContainerStyle }>
         <TweetInputBox />
-        <NewTweets />
-        <Tweet />
-        <Tweet />
-        <Tweet />
-        <Tweet />
+        {this.state.hasNewTweets ? <NewTweets /> : null }
+        <Tweets />
       </div>
     );
   }

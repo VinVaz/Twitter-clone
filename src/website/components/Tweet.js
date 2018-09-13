@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 const ContainerStyle = {
   marginBottom: '2px',
+  width: '100%',
+  border: 'none',
   padding: '15px',
   backgroundColor: '#fffffd',
   minHeight: '100px',
@@ -28,7 +30,8 @@ const UserAction = ({ name, number }) => {
       <span>{ number }</span>
     </button>
   );
-}
+};
+//hard coded text:
 const randomText = `fourewhfirhfouehfoihwrofheorif
               hoerhfouerhfouhweorhforhfoehrf
               oheroufhoieurhfoehrfouh`;

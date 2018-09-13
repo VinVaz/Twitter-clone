@@ -3,28 +3,30 @@ import React, { Component } from 'react';
 const ContainerStyle = {
   position: 'relative',
   width: '280px',
-  height: '300px',
+  height: '280px',
   boxSizing: 'border-box',
   padding: '10px',
   marginBottom: '20px',
-  backgroundColor: '#aabaa5',
+  backgroundColor: '#c9d4c6',
 };
 const HeaderStyle = {
-  position: 'relative',
-  top: '25%',
+  position: 'absolute',
+  top: '30%',
   display: 'flex',
   margin: '5px',
 };
 const FooterStyle = {
-  position: 'relative',
-  top: '45%',
+  position: 'absolute',
+  bottom: '15px',
+  left: '18px',
   display: 'flex',
   flexDirection: 'row',
 };
 const InfoBoxStyle = {
-  backgroundColor: '#fff',
-  margin: 'auto',
+  backgroundColor: 'inherit',
   textAlign: 'center',
+  border: 'none',
+  margin: '10px',
 };
 const InfoBox = ({ name, number }) => {
   return (

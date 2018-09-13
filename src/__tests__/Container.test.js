@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import connectedApp from '../website/containers/container';
-import App from '../website/components/App';
+import App from '../website/App';
 import Containers from '../website/containers';
 import { createTweet } from '../website/actions';
 import rootReducer from '../website/reducers';
@@ -15,7 +15,7 @@ beforeAll(() => {
   store = createStore(rootReducer);
   wrapper = mount(<Provider store={store}><Containers /></Provider>);
 });
-it('react/redux should render one container', () => {
+it('react/redux should render at least one container', () => {
   expect(wrapper.find(Containers)).toHaveLength(1);
 });
 it('react/redux should connect to the application', () => {
@@ -49,6 +49,15 @@ describe('The connected Application should receive these props from state:', () 
   it('connected app should have a prop named followButtonPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('followButtonPressed');
   });
+  it('connected app should have a prop named threadShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('threadShowing');
+  });
+  it('connected app should have a prop named newTweetsButtonShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('newTweetsButtonShowing');
+  });
+  it('connected app should have a prop named profileBoxShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('profileBoxShowing');
+  });
 });
 
 describe('The connected Application should receive these action creators as props:', () => {
@@ -75,5 +84,14 @@ describe('The connected Application should receive these action creators as prop
   });
   it('connected app should have a prop named retweetPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('followSomeone');
+  });
+  it('connected app should have a prop named handleThread', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('handleThread');
+  });
+  it('connected app should have a prop named handleNewTweets', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('handleNewTweets');
+  });
+  it('connected app should have a prop named handleProfileBox', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('handleProfileBox');
   });
 });
