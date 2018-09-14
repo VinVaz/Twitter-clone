@@ -2,34 +2,43 @@ import React, { Component } from 'react';
 
 const ContainerStyle = {
   backgroundColor: '#c9d4c6',
-  minHeight: '60px',
   padding: '2px',
 };
 const BodyStyle = {
-  minHeight: '100px',
-  margin: '1px',
+  position: 'relative',
+  height: '100px',
 };
 const FooterStyle = {
   position: 'relative',
   height: '40px',
-  margin: '0px',
 };
-const InputStyle = {
+const TextAreaContainerStyle = {
+  position: 'absolute',
+  left: '100px',
   height: '80px',
-  margin: '8px 5px 5px 10px',
-  width: '75%',
-  display: 'inline-block',
+  right: '50px',
+  top: '10px',
+}
+const TextAreaStyle = {
+  boxSizing: 'border-box',
+  width: '100%',
+  height: '100%',
+  padding: '10px 15px',  
   borderRadius: '10px',
   border: 'none',
 };
 const UserPhotoStyle = {
-  display: 'inline-block',
-  margin: '5px',
+  position: 'absolute',
+  left: '10px',
+  top: '10px',
+  width: '80px',
+  height: '100px',
+  backgroundColor: '#890',
 };
 const TweetStyle = {
   position: 'absolute',
   right: '50px',
-  top: '4px',
+  top: '8px',
 };
 
 class TweetInputBox extends Component {
@@ -38,7 +47,9 @@ class TweetInputBox extends Component {
       <div style={ ContainerStyle }>
         <div style={ BodyStyle }>
           <div style={ UserPhotoStyle }>{`user's photo`}</div>
-          <input style={ InputStyle } placeholder='new tweet'/>
+          <div style={ TextAreaContainerStyle } >
+            <textarea type="text" style={ TextAreaStyle } placeholder='new tweet'/>
+          </div>
         </div>
         <div style={ FooterStyle }>
           <button style={TweetStyle}>Tweet</button>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import UserSpace from './UserSpace';
 import TweetsBox from './TweetsBox';
 
@@ -11,10 +10,11 @@ const HomeBodyStyle = {
 
 class HomeBody extends Component {
   render() {
+    const { showThread } = this.props;
     return (
       <div style={ HomeBodyStyle }>
         <UserSpace />
-        <TweetsBox />
+        <TweetsBox showThread={ showThread }/>
       </div>
     );
   }

@@ -4,6 +4,7 @@ const ContainerStyle = {
   marginBottom: '2px',
   width: '100%',
   border: 'none',
+  boxSizing: 'border-box',
   padding: '15px',
   backgroundColor: '#fffffd',
   minHeight: '100px',
@@ -14,9 +15,10 @@ const HeaderStyle = {
   margin: '5px',
 };
 const UserActionStyle = {
-  backgroundColor: '#fff',
+  backgroundColor: 'inherit',
   margin: '4px',
   textAlign: 'center',
+  border: 'none',
 };
 const FooterStyle = {
   display: 'flex',
@@ -27,6 +29,7 @@ const UserAction = ({ name, number }) => {
   return (
     <button style={ UserActionStyle }>
       <span>{ name }</span>
+      <span>{ ' ' }</span>
       <span>{ number }</span>
     </button>
   );
@@ -37,8 +40,9 @@ const randomText = `fourewhfirhfouehfoihwrofheorif
               oheroufhoieurhfoehrfouh`;
 class Tweet extends Component {
   render() {
+    const { showThread } = this.props;
     return (
-      <div style={ ContainerStyle }>
+      <div style={ ContainerStyle } onClick = {() => showThread()}>
         <div style={ HeaderStyle }>
           <button>picture</button>
           <p>username</p>

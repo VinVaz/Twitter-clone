@@ -45,6 +45,7 @@ class Header extends Component {
     const {
       profileBoxShowing,
       handleProfileBox,
+      showCreateNewTweet,
     } = this.props;
     
     return (
@@ -60,7 +61,7 @@ class Header extends Component {
           {profileBoxShowing ? <ProfileView /> : null }
         </div>
         <div style={TweetBoxStyle}>
-          <HeaderTweetButton/>
+          <HeaderTweetButton showCreateNewTweet={ showCreateNewTweet }/>
         </div>
       </div>
     );

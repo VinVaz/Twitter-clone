@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Header';
 
 class HeaderTweetButton extends Component {
   render() {
-    return (<button>Tweet</button>);
+    const { showCreateNewTweet } = this.props;
+    return (<button onClick={ showCreateNewTweet }>Tweet</button>);
   }
 }
 

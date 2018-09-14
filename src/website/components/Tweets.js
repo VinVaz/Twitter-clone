@@ -2,16 +2,22 @@ import React, { Component } from 'react';
 import Tweet from './Tweet';
 
 const ContainerStyle = {
-  backgroundColor: '#ababab'
+  backgroundColor: '#ababab',
+  width: '100%',
 };
 class Tweets extends Component {
+  generateTweets() {
+    const { showThread } = this.props;
+    let tweets = []
+    for(let i = 0; i < 5; i++){
+      tweets.push(<Tweet showThread={ showThread }/>)
+    }
+    return tweets;
+  }
   render() {
     return (
       <div style={ ContainerStyle }>
-        <Tweet />
-        <Tweet />
-        <Tweet />
-        <Tweet />
+        { this.generateTweets() }
       </div>
     );
   }

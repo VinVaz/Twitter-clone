@@ -10,9 +10,11 @@ import {
   replyTweet,
   retweet,
   followSomeone,
-  handleThread,
+  showThread,
   handleNewTweets,
   handleProfileBox,
+  showBackground,
+  showCreateNewTweet,
 } from '../actions';
 
 const mapStateToProps = state => ({
@@ -28,6 +30,8 @@ const mapStateToProps = state => ({
   threadShowing: state.view.threadShowing,
   newTweetsButtonShowing: state.view.newTweetsButtonShowing,
   profileBoxShowing: state.view.profileBoxShowing,
+  backgroundIsHidden: state.view.backgroundIsHidden,
+  createNewTweetIsShowing: state.view.createNewTweetIsShowing,
 });
 const mapDispatchToProps = dispatch => ({
   createTweet: text => dispatch(createTweet(text)),
@@ -39,9 +43,11 @@ const mapDispatchToProps = dispatch => ({
   replyTweet: () => dispatch(replyTweet()),
   retweet: () => dispatch(retweet()),
   followSomeone: () => dispatch(followSomeone()),
-  handleThread: () => dispatch(handleThread()),
+  showThread: () => dispatch(showThread()),
   handleNewTweets: () => dispatch(handleNewTweets()),
   handleProfileBox: () => dispatch(handleProfileBox()),
+  showBackground: () => dispatch(showBackground()),
+  showCreateNewTweet: () => dispatch(showCreateNewTweet()),
 });
 
 export default connect(

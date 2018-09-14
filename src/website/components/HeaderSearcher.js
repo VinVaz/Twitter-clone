@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from './Header';
 
 const SearcherStyle = {
   width: '80%',
   height: '30px',
+  paddingLeft: '15px',
 };
 class HeaderSearcher extends Component {
   render() {

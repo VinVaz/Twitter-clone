@@ -5,6 +5,7 @@ import TweetInputBox from './TweetInputBox';
 
 const ContainerStyle = {
   minWidth: '300px',
+  backgroundColor: "#000",
   display: 'flex',
   flexDirection: 'column',
 };
@@ -14,11 +15,12 @@ class TweetsBox extends Component {
     hasNewTweets: true,
   }
   render() {
+    const { showThread } = this.props;
     return (
       <div style={ ContainerStyle }>
         <TweetInputBox />
         {this.state.hasNewTweets ? <NewTweets /> : null }
-        <Tweets />
+        <Tweets showThread={ showThread }/>
       </div>
     );
   }

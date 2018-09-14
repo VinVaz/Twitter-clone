@@ -25,6 +25,8 @@ const viewInitialState = {
   profileBoxShowing: false,
   threadShowing: false,
   newTweetsButtonShowing: false,
+  backgroundIsHidden: false,
+  createNewTweetIsShowing: false,
 };
 const reducersInitialState = {
   tweet: tweetInitialState,
@@ -124,8 +126,57 @@ describe('Test reducers', () => {
       type: actions.LIKE_TWEET,
     })).toEqual(userState);
   });
-
-  it('reducers should return initial state', () => {
+  it('view should return initial state', () => {
+    expect(view(undefined, {})).toEqual(viewInitialState);
+  });
+  it('view should handle SHOW_THREAD', () => {
+    const combinedState = {
+      ...viewInitialState,
+      threadShowing: !viewInitialState.threadShowing,
+      backgroundIsHidden: !viewInitialState.backgroundIsHidden,
+    };
+    expect(view(undefined, {
+      type: actions.SHOW_THREAD,
+    })).toEqual(combinedState);
+  });
+  it('view should handle SHOW_BACKGROUND', () => {
+    const combinedState = {
+      ...viewInitialState,
+      backgroundIsHidden: false,
+      threadShowing: false,
+    };
+    expect(view(undefined, {
+      type: actions.SHOW_BACKGROUND,
+    })).toEqual(combinedState);
+  });
+  it('view should handle HANDLE_NEWTWEETS', () => {
+    const combinedState = {
+      ...viewInitialState,
+      newTweetsButtonShowing: !viewInitialState.newTweetsButtonShowing,
+    };
+    expect(view(undefined, {
+      type: actions.HANDLE_NEWTWEETS,
+    })).toEqual(combinedState);
+  });
+  it('view should handle HANDLE_PROFILEBOX', () => {
+    const combinedState = {
+      ...viewInitialState,
+      profileBoxShowing: !viewInitialState.profileBoxShowing,
+    };
+    expect(view(undefined, {
+      type: actions.HANDLE_PROFILEBOX,
+    })).toEqual(combinedState);
+  });
+  it('view should handle SHOW_CREATENEWTWEET', () => {
+    const combinedState = {
+      ...viewInitialState,
+      createNewTweetIsShowing: !viewInitialState.createNewTweetIsShowing,
+    };
+    expect(view(undefined, {
+      type: actions.SHOW_CREATENEWTWEET,
+    })).toEqual(combinedState);
+  });
+    it('reducers should return initial state', () => {
     expect(reducers(undefined, {})).toEqual(reducersInitialState);
   });
   it('reducers should handle SEARCH_TWITTER', () => {
@@ -137,8 +188,5 @@ describe('Test reducers', () => {
       type: actions.SEARCH_TWITTER,
       name: randomName,
     })).toEqual(combinedState);
-  });
-  it('view should handle HANDLE_THREAD', () => {
-    expect(view(undefined, {})).toEqual(viewInitialState);
   });
 });

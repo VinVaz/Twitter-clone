@@ -52,6 +52,9 @@ describe('The connected Application should receive these props from state:', () 
   it('connected app should have a prop named threadShowing', () => {
     expect(wrapper.find(App).props()).toHaveProperty('threadShowing');
   });
+  it('connected app should have a prop named backgroundIsHidden', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('backgroundIsHidden');
+  });
   it('connected app should have a prop named newTweetsButtonShowing', () => {
     expect(wrapper.find(App).props()).toHaveProperty('newTweetsButtonShowing');
   });
@@ -85,11 +88,17 @@ describe('The connected Application should receive these action creators as prop
   it('connected app should have a prop named retweetPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('followSomeone');
   });
-  it('connected app should have a prop named handleThread', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('handleThread');
+  it('connected app should have a prop named showThread', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showThread');
   });
   it('connected app should have a prop named handleNewTweets', () => {
     expect(wrapper.find(App).props()).toHaveProperty('handleNewTweets');
+  });
+  it('connected app should have a prop named showBackground', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showBackground');
+  });
+  it('connected app should have a prop named showCreateNewTweet', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showCreateNewTweet');
   });
   it('connected app should have a prop named handleProfileBox', () => {
     expect(wrapper.find(App).props()).toHaveProperty('handleProfileBox');
