@@ -40,8 +40,8 @@ describe('The connected Application should receive these props from state:', () 
   it('connected app should have a prop named likeButtonPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('likeButtonPressed');
   });
-  it('connected app should have a prop named replayTweetPressed', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('replayTweetPressed');
+  it('connected app should have a prop named replyTweetPressed', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('replyTweetPressed');
   });
   it('connected app should have a prop named retweetPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('retweetPressed');
@@ -82,7 +82,7 @@ describe('The connected Application should receive these action creators as prop
   it('connected app should have a prop named likeButtonPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('replyTweet');
   });
-  it('connected app should have a prop named replayTweetPressed', () => {
+  it('connected app should have a prop named replyTweetPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('retweet');
   });
   it('connected app should have a prop named retweetPressed', () => {

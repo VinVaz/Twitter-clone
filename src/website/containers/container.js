@@ -24,7 +24,7 @@ const mapStateToProps = state => ({
   showWhoFollowing: state.user.showWhoFollowing,
   showFollowers: state.user.showFollowers,
   likeButtonPressed: state.interaction.likeButtonPressed,
-  replayTweetPressed: state.interaction.replayTweetPressed,
+  replyTweetPressed: state.interaction.replyTweetPressed,
   retweetPressed: state.interaction.retweetPressed,
   followButtonPressed: state.interaction.followButtonPressed,
   threadShowing: state.view.threadShowing,

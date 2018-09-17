@@ -34,24 +34,20 @@ const UserAction = ({ name, number }) => {
     </button>
   );
 };
-//hard coded text:
-const randomText = `fourewhfirhfouehfoihwrofheorif
-              hoerhfouerhfouhweorhforhfoehrf
-              oheroufhoieurhfoehrfouh`;
 class Tweet extends Component {
   render() {
-    const { showThread } = this.props;
+    const { showThread, tweet } = this.props;
     return (
-      <div style={ ContainerStyle } onClick = {() => showThread()}>
+      <div style={ ContainerStyle } onClick = { showThread ? showThread : null }>
         <div style={ HeaderStyle }>
           <button>picture</button>
           <p>username</p>
         </div>
-        <p>{ randomText }</p>
+        <p>{ tweet.content }</p>
         <div style={ FooterStyle}>
-          <UserAction name='Like' number='3'/>
-          <UserAction name='Retweet' number='106'/>
-          <UserAction name='Replay' number='12'/>
+          <UserAction name='Like' number={ tweet.likes }/>
+          <UserAction name='Retweet' number={ tweet.numberOfRetweets }/>
+          <UserAction name='Reply' number={ tweet.numberOfReplies }/>
         </div>
       </div>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import fetchData from '../common/fetchData';
 
 const ContainerStyle = {
   position: 'relative',
@@ -38,6 +39,22 @@ const InfoBox = ({ name, number }) => {
 };
 
 class UserBox extends Component {
+  state = {
+    tweets : 0,
+    following: 0,
+    followers: 0,
+  }
+  componentDidMount() {
+    fetchData('/api/user', 'GET').then((res) => {
+      if (res) {
+        this.setState({
+          tweets: res.publicInfo.numberOfTweets,
+          following: res.publicInfo.followingNumber,
+          followers: res.publicInfo.numberOfFollowers,
+        });
+      }
+    });
+  }
   render() {
     return (
       <div style={ ContainerStyle }>
@@ -46,9 +63,9 @@ class UserBox extends Component {
           <p>username</p>
         </div>
         <div style={ FooterStyle}>
-          <InfoBox name='Tweets' number='3'/>
-          <InfoBox name='Following' number='106'/>
-          <InfoBox name='Followers' number='12'/>
+          <InfoBox name='Tweets' number={this.state.tweets}/>
+          <InfoBox name='Following' number={this.state.following}/>
+          <InfoBox name='Followers' number={this.state.followers}/>
         </div>
       </div>
     );

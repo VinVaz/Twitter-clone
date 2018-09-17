@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import UserSpace from './UserSpace';
-import TweetsBox from './TweetsBox';
+import HomeBodyLeft from './HomeBodyLeft';
+import HomeBodyRight from './HomeBodyRight';
 
 const HomeBodyStyle = {
-  padding: '70px 20px 20px 20px',
-  backgroundColor: '#f2f3ff',
-  display: 'flex',
+  position: 'relative',
 }
 
 class HomeBody extends Component {
@@ -13,8 +11,8 @@ class HomeBody extends Component {
     const { showThread } = this.props;
     return (
       <div style={ HomeBodyStyle }>
-        <UserSpace />
-        <TweetsBox showThread={ showThread }/>
+        <HomeBodyLeft />
+        <HomeBodyRight showThread={ showThread }/>
       </div>
     );
   }

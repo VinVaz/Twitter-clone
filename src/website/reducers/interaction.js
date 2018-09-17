@@ -2,7 +2,7 @@ import * as types from '../actions/index';
 
 export const interaction = (state = {
   likeButtonPressed: false,
-  replayTweetPressed: false,
+  replyTweetPressed: false,
   retweetPressed: false,
   followButtonPressed: false,
 }, action) => {
@@ -15,7 +15,7 @@ export const interaction = (state = {
     case types.REPLY_TWEET:
       return {
         ...state,
-        replayTweetPressed: !state.replayTweetPressed,
+        replyTweetPressed: !state.replyTweetPressed,
       };
     case types.RETWEET:
       return {

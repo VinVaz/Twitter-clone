@@ -1,15 +1,19 @@
 'use strict';
 
-var express = require('express');
+const express = require('express'),
+      routes = require('./src/backend/routes/index.js'),
+      mongoose = require('mongoose');
 
-var app = express();
-var PORT = process.env.PORT || 8080;
+const app = express();
+require('dotenv').load();
 
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello from Express' });
-});
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+
+routes(app);
+const PORT = process.env.PORT || 8080;
+
 
 app.listen(PORT, () => {
   console.log(`Node.js is listening on port: ${PORT}...`);
 });
-

@@ -17,7 +17,7 @@ const userInitialState = {
 };
 const interactionInitialState = {
   likeButtonPressed: false,
-  replayTweetPressed: false,
+  replyTweetPressed: false,
   retweetPressed: false,
   followButtonPressed: false,
 };
@@ -93,7 +93,7 @@ describe('Test reducers', () => {
   it('interaction reducer should handle REPLY_TWEET', () => {
     const userState = {
       ...interactionInitialState,
-      replayTweetPressed: !interactionInitialState.replayTweetPressed,
+      replyTweetPressed: !interactionInitialState.replyTweetPressed,
     };
     expect(interaction(undefined, {
       type: actions.REPLY_TWEET,
