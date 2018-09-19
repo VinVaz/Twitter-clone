@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserBox from './UserBox';
+import ProfileUserBox from './ProfileUserBox';
 
 const HomeBodyLeftStyle = {
   position: 'absolute',
@@ -12,7 +12,7 @@ class HomeBodyLeft extends Component {
   render() {
     return (
       <div style={ HomeBodyLeftStyle }>
-        <UserBox />
+        <ProfileUserBox/>
       </div>
     );
   }

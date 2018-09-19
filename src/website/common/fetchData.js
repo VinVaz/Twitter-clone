@@ -16,7 +16,7 @@ export default function (url = ``, myMethod = 'GET', data = {}) {
   }
   return fetch(url, init)
     .then(response => {
-      if (response.ok) {
+      if (response.status === 200) {
         return response.json();
       } else throw new Error('Network response was not ok.')
     })

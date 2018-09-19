@@ -1,71 +1,53 @@
 import React, { Component } from 'react';
-import fetchData from '../common/fetchData';
 
 const ContainerStyle = {
   position: 'relative',
-  width: '280px',
-  height: '280px',
+  width: '250px',
+  height: '200px',
   boxSizing: 'border-box',
+  float: 'left',
   padding: '10px',
-  marginBottom: '20px',
+  margin: '0 0 10px 10px',
+  borderRadius: '4px',
   backgroundColor: '#c9d4c6',
 };
 const HeaderStyle = {
   position: 'absolute',
-  top: '30%',
-  display: 'flex',
+  boxSizing: 'border-box',
+  top: '80px',
+  height: '80px',
   margin: '5px',
 };
-const FooterStyle = {
+const UserPictureStyle = {
   position: 'absolute',
-  bottom: '15px',
-  left: '18px',
-  display: 'flex',
-  flexDirection: 'row',
+  top: '0px',
+  left: '0px',
+  padding: '4px',
+  width: '60px',
+  height: '80px',
+  backgroundColor: '#565',
 };
-const InfoBoxStyle = {
-  backgroundColor: 'inherit',
-  textAlign: 'center',
-  border: 'none',
-  margin: '10px',
+const NameStyle = {
+  position: 'absolute',
+  top: '15px',
+  left: '80px',
 };
-const InfoBox = ({ name, number }) => {
-  return (
-    <button style={ InfoBoxStyle }>
-      <p>{ name }</p>
-      <p>{ number }</p>
-    </button>
-  );
+const NickNameStyle = {
+  position: 'absolute',
+  top: '45px',
+  left: '80px',
 };
 
 class UserBox extends Component {
-  state = {
-    tweets : 0,
-    following: 0,
-    followers: 0,
-  }
-  componentDidMount() {
-    fetchData('/api/user', 'GET').then((res) => {
-      if (res) {
-        this.setState({
-          tweets: res.publicInfo.numberOfTweets,
-          following: res.publicInfo.followingNumber,
-          followers: res.publicInfo.numberOfFollowers,
-        });
-      }
-    });
-  }
   render() {
+    const { user } = this.props;
     return (
       <div style={ ContainerStyle }>
+        <button>Follow</button>
         <div style={ HeaderStyle }>
-          <button>picture</button>
-          <p>username</p>
-        </div>
-        <div style={ FooterStyle}>
-          <InfoBox name='Tweets' number={this.state.tweets}/>
-          <InfoBox name='Following' number={this.state.following}/>
-          <InfoBox name='Followers' number={this.state.followers}/>
+          <div style={ UserPictureStyle }>{ user.profile.picture }</div>
+          <div style={ NameStyle }>{ user.profile.name }</div>
+          <div style={ NickNameStyle }>{ user.profile.userName }</div>
         </div>
       </div>
     );

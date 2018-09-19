@@ -11,10 +11,10 @@ class Tweets extends Component {
     tweets : '',
   }
   componentDidMount() {
-    fetchData('/api/user', 'GET').then((res) => {
+    fetchData('/api/user/following/tweets', 'GET').then((res) => {
       if (res) {
         this.setState({
-          tweets: res.tweets,
+          tweets: res,
         });
       }
     });
@@ -25,7 +25,7 @@ class Tweets extends Component {
     let myTweets = [];
     for(let i = 0; i < tweets.length; i++){
       myTweets.push(<Tweet showThread={ showThread }
-                           key={tweets[i].id} 
+                           key={i}
                            tweet={ tweets[i] }
                     />);
     }

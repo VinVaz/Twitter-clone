@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TweetsSpace from './TweetsSpace';
+import UsersSpace from './UsersSpace';
 
 const ContainerStyle = {
   minWidth: '300px',
@@ -7,7 +8,6 @@ const ContainerStyle = {
   top: '80px',
   left: '360px',
   right: '60px',
-  backgroundColor: '#00f',
 };
 
 class HomeBodyRight extends Component {
@@ -15,7 +15,8 @@ class HomeBodyRight extends Component {
     const { showThread } = this.props;
     return (
       <div style={ ContainerStyle }>
-        <TweetsSpace showThread={ showThread }/>
+        {false ? <TweetsSpace showThread={ showThread }/> : null}
+        {true ? <UsersSpace /> : null}
       </div>
     );
   }

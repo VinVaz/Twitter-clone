@@ -4,8 +4,9 @@ import HomeBody from './HomeBody';
 import Tweets from './Tweets';
 import CreateNewTweet from './CreateNewTweet';
 
-const ContainerStyle = {
+const FocusedStyle = {
   backgroundColor: '#f2f3ff',
+  position: 'relative',
   width: '100vw',
   height: '100vh',
 }
@@ -16,10 +17,12 @@ const TweetsContainerStyle = {
   width: '500px',
   zIndex: '3',
 };
-const unfocusedStyle = {
+const UnfocusedStyle = {
   filter: 'brightness(50%)',
   position: 'fixed',
-  backgroundColor: 'inherit',
+  backgroundColor: '#f2f3ff',
+  width: '100vw',
+  height: '100vh',
 }
 const Thread = () => {
   return(
@@ -41,8 +44,8 @@ class Home extends Component {
       showCreateNewTweet,
     } = this.props;
     return (
-      <div style={ ContainerStyle }>
-        <div style={ backgroundIsHidden ? unfocusedStyle : null } onClickCapture={showBackground}>
+      <div>
+        <div style={ backgroundIsHidden ? UnfocusedStyle : FocusedStyle } onClickCapture={showBackground}>
           <Header
             profileBoxShowing={ profileBoxShowing }
             handleProfileBox={ handleProfileBox }
