@@ -1,6 +1,10 @@
 import * as types from '../actions/index';
 
 export const view = (state = {
+  tweetsShowing: false,
+  followingShowing: false,
+  followersShowing: false,
+  homePageShowing: false,
   profileBoxShowing: false,
   threadShowing: false,
   newTweetsButtonShowing: false,
@@ -8,6 +12,38 @@ export const view = (state = {
   createNewTweetIsShowing: false,
 }, action) => {
   switch (action.type) {
+    case types.SHOW_HOMEPAGE:
+      return {
+        ...state,
+        tweetsShowing: false,
+        followersShowing: false,
+        followingShowing: false,
+        homePageShowing: true,
+      };
+    case types.SHOW_TWEETS:
+      return {
+        ...state,
+        tweetsShowing: true,
+        followersShowing: false,
+        followingShowing: false,
+        homePageShowing: false,
+      };
+    case types.SHOW_FOLLOWING:
+      return {
+        ...state,
+        tweetsShowing: false,
+        followersShowing: false,
+        followingShowing: true,
+        homePageShowing: false,
+      };
+    case types.SHOW_FOLLOWERS:
+      return {
+        ...state,
+        tweetsShowing: false,
+        followersShowing: true,
+        followingShowing: false,
+        homePageShowing: false,
+      };
     case types.SHOW_THREAD:
       return {
         ...state,

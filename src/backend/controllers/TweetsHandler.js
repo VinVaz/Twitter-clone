@@ -5,7 +5,7 @@ const UserSchema = require('../models/user.js');
 
 function TweetsHandler() {
 	
-  this.getTweets = function(req, res) {
+  this.tweetsShowing = function(req, res) {
     UserSchema
       .findOne({})
       .exec(function(err, result){

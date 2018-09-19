@@ -1,6 +1,7 @@
-export const GET_TWEETS = 'GET_TWEETS';
-export const GET_FOLLOWING = 'GET_FOLLOWING';
-export const GET_FOLLOWERS = 'GET_FOLLOWERS';
+export const SHOW_TWEETS = 'SHOW_TWEETS';
+export const SHOW_FOLLOWING = 'SHOW_FOLLOWING';
+export const SHOW_FOLLOWERS = 'SHOW_FOLLOWERS';
+export const SHOW_HOMEPAGE = 'SHOW_HOMEPAGE';
 export const CREATE_TWEET = 'CREATE_TWEET';
 export const SEARCH_TWITTER = 'SEARCH_TWITTER';
 export const LIKE_TWEET = 'LIKE_TWEET';
@@ -28,14 +29,17 @@ export const handleNewTweets = () => ({
 export const handleProfileBox = () => ({
   type: HANDLE_PROFILEBOX,
 });
-export const getTweets = () => ({
-  type: GET_TWEETS,
+export const showTweets = () => ({
+  type: SHOW_TWEETS,
 });
-export const getFollowing = () => ({
-  type: GET_FOLLOWING,
+export const showHomePage = () => ({
+  type: SHOW_HOMEPAGE,
 });
-export const getFollowers = () => ({
-  type: GET_FOLLOWERS,
+export const showFollowing = () => ({
+  type: SHOW_FOLLOWING,
+});
+export const showFollowers = () => ({
+  type: SHOW_FOLLOWERS,
 });
 export const createTweet = text => ({
   type: CREATE_TWEET,

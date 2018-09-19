@@ -28,14 +28,17 @@ describe('The connected Application should receive these props from state:', () 
   it('connected app should have a prop named search', () => {
     expect(wrapper.find(App).props()).toHaveProperty('search');
   });
-  it('connected app should have a prop named showTweets', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('showTweets');
+  it('connected app should have a prop named tweetsShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('tweetsShowing');
   });
-  it('connected app should have a prop named showWhoFollowing', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('showWhoFollowing');
+  it('connected app should have a prop named followingShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('followingShowing');
   });
-  it('connected app should have a prop named showFollowers', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('showFollowers');
+  it('connected app should have a prop named followersShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('followersShowing');
+  });
+  it('connected app should have a prop named homePageShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('homePageShowing');
   });
   it('connected app should have a prop named likeButtonPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('likeButtonPressed');
@@ -70,14 +73,17 @@ describe('The connected Application should receive these action creators as prop
   it('connected app should have a prop named search', () => {
     expect(wrapper.find(App).props()).toHaveProperty('searchTwitter');
   });
-  it('connected app should have a prop named showTweets', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('getTweets');
+  it('connected app should have a prop named showHomePage', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showHomePage');
   });
-  it('connected app should have a prop named showWhoFollowing', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('getFollowing');
+  it('connected app should have a prop named showTweets', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showTweets');
+  });
+  it('connected app should have a prop named showFollowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showFollowing');
   });
   it('connected app should have a prop named showFollowers', () => {
-    expect(wrapper.find(App).props()).toHaveProperty('getFollowers');
+    expect(wrapper.find(App).props()).toHaveProperty('showFollowers');
   });
   it('connected app should have a prop named likeButtonPressed', () => {
     expect(wrapper.find(App).props()).toHaveProperty('replyTweet');

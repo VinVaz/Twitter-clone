@@ -12,6 +12,14 @@ class App extends Component {
       showBackground,
       showCreateNewTweet,
       createNewTweetIsShowing,
+      followingShowing,
+      followersShowing,
+      homePageShowing,
+      tweetsShowing,
+      showTweets,
+      showFollowing,
+      showFollowers,
+      showHomePage,
     } = this.props;
 
     return (<Home
@@ -23,6 +31,14 @@ class App extends Component {
       showBackground={ showBackground }
       showCreateNewTweet={ showCreateNewTweet }
       createNewTweetIsShowing={ createNewTweetIsShowing }
+      followingShowing={ followingShowing}
+      followersShowing={ followersShowing}
+      homePageShowing={ homePageShowing}
+      tweetsShowing={ tweetsShowing}
+      showTweets={ showTweets}
+      showFollowing={ showFollowing}
+      showFollowers={ showFollowers}
+      showHomePage={ showFollowers}
     />);
   }
 }

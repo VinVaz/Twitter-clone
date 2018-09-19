@@ -42,6 +42,14 @@ class Home extends Component {
       showBackground,
       createNewTweetIsShowing,
       showCreateNewTweet,
+      followingShowing,
+      followersShowing,
+      homePageShowing,
+      tweetsShowing,
+      showTweets,
+      showFollowing,
+      showFollowers,
+      showHomePage,
     } = this.props;
     return (
       <div>
@@ -50,8 +58,18 @@ class Home extends Component {
             profileBoxShowing={ profileBoxShowing }
             handleProfileBox={ handleProfileBox }
             showCreateNewTweet={ showCreateNewTweet }
+            showHomePage={ showFollowers}
           />
-          <HomeBody showThread={ showThread } />
+          <HomeBody 
+            showThread={ showThread }
+            followingShowing={ followingShowing}
+            followersShowing={ followersShowing}
+            tweetsShowing={ tweetsShowing}
+            homePageShowing={ homePageShowing}
+            showTweets={ showTweets}
+            showFollowing={ showFollowing}
+            showFollowers={ showFollowers}
+          />
         </div>
         {threadShowing ? <Thread /> : null}
         {createNewTweetIsShowing ? <CreateNewTweet /> : null}

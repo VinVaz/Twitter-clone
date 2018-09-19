@@ -12,11 +12,17 @@ const ContainerStyle = {
 
 class HomeBodyRight extends Component {
   render() {
-    const { showThread } = this.props;
+    const { 
+      showThread,
+      followingShowing,
+      followersShowing,
+      homePageShowing,
+      tweetsShowing,
+    } = this.props;
     return (
       <div style={ ContainerStyle }>
-        {false ? <TweetsSpace showThread={ showThread }/> : null}
-        {true ? <UsersSpace /> : null}
+        {tweetsShowing ? <TweetsSpace showThread={ showThread }/> : null}
+        {followersShowing ? <UsersSpace /> : null}
       </div>
     );
   }

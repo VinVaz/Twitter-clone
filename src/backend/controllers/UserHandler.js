@@ -11,7 +11,7 @@ function UserHandler() {
         res.json(result.publicInfo);
       });
 	};
-  this.getTweets = function (req, res) {
+  this.tweetsShowing = function (req, res) {
     UserSchema
       .findOne({"publicInfo.profile.name" : "John Stans" }, {'tweets._id': false})
       .exec(function (err, result) {
@@ -19,7 +19,7 @@ function UserHandler() {
         res.json(result.tweets);
       });
 	};
-  this.getFollowers = function (req, res) {
+  this.followersShowing = function (req, res) {
     UserSchema
       .aggregate([
         {$project: {_id: 0, 'publicInfo': 1}},
@@ -31,7 +31,7 @@ function UserHandler() {
         res.json(result[0].publicInfo);
       });
 	};
-  this.getFollowing = function (req, res) {
+  this.followingShowing = function (req, res) {
     UserSchema
       .aggregate([
         {$project: {_id: 0, 'publicInfo': 1}},

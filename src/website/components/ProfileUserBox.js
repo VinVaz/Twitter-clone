@@ -51,9 +51,9 @@ const InfoBoxStyle = {
   border: 'none',
   margin: '10px',
 };
-const InfoBox = ({ lable, number }) => {
+const InfoBox = ({ lable, number, action }) => {
   return (
-    <button style={ InfoBoxStyle }>
+    <button style={ InfoBoxStyle } onClick={ action }>
       <p>{ lable }</p>
       <p>{ number }</p>
     </button>
@@ -91,7 +91,14 @@ class UserBox extends Component {
       userName,
       name,
       picture,
+      
     } = this.state;
+    
+    const {
+      showTweets,
+      showFollowing,
+      showFollowers,
+    } = this.props;
     
     return (
       <div style={ ContainerStyle }>
@@ -101,9 +108,9 @@ class UserBox extends Component {
           <div style={ NickNameStyle }>{ userName }</div>
         </div>
         <div style={ FooterStyle}>
-          <InfoBox lable='Tweets' number={tweets}/>
-          <InfoBox lable='Following' number={following}/>
-          <InfoBox lable='Followers' number={followers}/>
+          <InfoBox lable='Tweets' number={tweets} action={ showTweets }/>
+          <InfoBox lable='Following' number={following} action={ showFollowing }/>
+          <InfoBox lable='Followers' number={followers} action={ showFollowers }/>
         </div>
       </div>
     );

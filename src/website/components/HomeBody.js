@@ -8,11 +8,31 @@ const HomeBodyStyle = {
 
 class HomeBody extends Component {
   render() {
-    const { showThread } = this.props;
+    const { 
+      showThread,
+      followingShowing,
+      followersShowing,
+      homePageShowing,
+      tweetsShowing,
+      showTweets,
+      showFollowing,
+      showFollowers,
+      showHomePage,
+    } = this.props;
     return (
       <div style={ HomeBodyStyle }>
-        <HomeBodyLeft />
-        <HomeBodyRight showThread={ showThread }/>
+        <HomeBodyLeft
+          showTweets={ showTweets}
+          showFollowing={ showFollowing}
+          showFollowers={ showFollowers}
+        />
+        <HomeBodyRight 
+          showThread={ showThread }
+          followingShowing={ followingShowing}
+          followersShowing={ followersShowing}
+          homePageShowing={ homePageShowing}
+          tweetsShowing={ tweetsShowing}
+        />
       </div>
     );
   }
