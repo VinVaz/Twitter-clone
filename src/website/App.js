@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Home from './components/Home';
+import Pages from './components/Pages';
 
 class App extends Component {   
   render() {
@@ -12,6 +12,9 @@ class App extends Component {
       showBackground,
       showCreateNewTweet,
       createNewTweetIsShowing,
+      loginPageShowing,
+      loggedPagesShowing,
+      unloggedPageShowing,
       followingShowing,
       followersShowing,
       homePageShowing,
@@ -20,9 +23,12 @@ class App extends Component {
       showFollowing,
       showFollowers,
       showHomePage,
+      showLoginPage,
+      showLoggedPages,
+      showUnloggedPage,
     } = this.props;
 
-    return (<Home
+    return (<Pages
       profileBoxShowing={ profileBoxShowing }
       handleProfileBox={ handleProfileBox }
       threadShowing={ threadShowing }
@@ -35,10 +41,16 @@ class App extends Component {
       followersShowing={ followersShowing}
       homePageShowing={ homePageShowing}
       tweetsShowing={ tweetsShowing}
+      loginPageShowing={ loginPageShowing }
+      unloggedPageShowing={ unloggedPageShowing }
       showTweets={ showTweets}
       showFollowing={ showFollowing}
       showFollowers={ showFollowers}
-      showHomePage={ showFollowers}
+      showHomePage={ showHomePage}
+      showLoginPage={ showLoginPage }
+      showUnloggedPage={ showUnloggedPage }
+      loggedPagesShowing= { loggedPagesShowing }
+      showLoggedPages={ showLoggedPages }
     />);
   }
 }

@@ -46,6 +46,8 @@ class Header extends Component {
       profileBoxShowing,
       handleProfileBox,
       showCreateNewTweet,
+      showUnloggedPage,
+      showHomePage,
     } = this.props;
     
     return (
@@ -58,7 +60,9 @@ class Header extends Component {
         </div>
         <div style={ProfileBoxStyle}>
           <HeaderProfileButton handleProfileBox={ handleProfileBox }/>
-          {profileBoxShowing ? <ProfileView /> : null }
+          {profileBoxShowing ? <ProfileView 
+            showUnloggedPage={ showUnloggedPage }
+          />: null }
         </div>
         <div style={TweetBoxStyle}>
           <HeaderTweetButton showCreateNewTweet={ showCreateNewTweet }/>

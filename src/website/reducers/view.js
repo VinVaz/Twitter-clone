@@ -1,48 +1,72 @@
 import * as types from '../actions/index';
 
-export const view = (state = {
+const mainPagesReset =  {
+  loginPageShowing: false,
+  loggedPagesShowing: false,
+  unloggedPageShowing: false,
+};
+const homePageReset =  {
+  loginPageShowing: false,
+  loggedPagesShowing: true,
+    homePageShowing: false,
+  unloggedPageShowing: false,
   tweetsShowing: false,
   followingShowing: false,
   followersShowing: false,
-  homePageShowing: false,
   profileBoxShowing: false,
+};
+
+export const view = (state = {
+  ...homePageReset,
+  ...mainPagesReset,
+  unloggedPageShowing: true,
   threadShowing: false,
   newTweetsButtonShowing: false,
   backgroundIsHidden: false,
   createNewTweetIsShowing: false,
 }, action) => {
   switch (action.type) {
+    case types.SHOW_LOGGED_PAGES:
+      return {
+        ...state,
+        ...mainPagesReset,
+        loggedPagesShowing: true,
+      };
+    case types.SHOW_UNLOGGED_PAGE:
+      return {
+        ...state,
+        ...mainPagesReset,
+        unloggedPageShowing: true,
+      };
+    case types.SHOW_LOGIN_PAGE:
+      return {
+        ...state,
+        ...mainPagesReset,
+        loginPageShowing: true,
+      };
     case types.SHOW_HOMEPAGE:
       return {
         ...state,
-        tweetsShowing: false,
-        followersShowing: false,
-        followingShowing: false,
+        ...homePageReset,
         homePageShowing: true,
       };
     case types.SHOW_TWEETS:
       return {
         ...state,
+        ...homePageReset,
         tweetsShowing: true,
-        followersShowing: false,
-        followingShowing: false,
-        homePageShowing: false,
       };
     case types.SHOW_FOLLOWING:
       return {
         ...state,
-        tweetsShowing: false,
-        followersShowing: false,
+        ...homePageReset,
         followingShowing: true,
-        homePageShowing: false,
       };
     case types.SHOW_FOLLOWERS:
       return {
         ...state,
-        tweetsShowing: false,
+        ...homePageReset,
         followersShowing: true,
-        followingShowing: false,
-        homePageShowing: false,
       };
     case types.SHOW_THREAD:
       return {

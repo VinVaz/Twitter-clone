@@ -11,7 +11,8 @@ class UsersSpace extends Component {
     users : {},
   }
   componentDidMount() {
-    fetchData(`/api/user/followers/info`, 'GET').then((res) => {
+    const { typeOfUsers } = this.props;
+    fetchData(`/api/user/${ typeOfUsers }/info`, 'GET').then((res) => {
       this.setState({
         users: res,
       });
@@ -20,7 +21,7 @@ class UsersSpace extends Component {
   generateUserBoxes() {
     const { users } = this.state;
     let myUsers = [];
-    //await until the profile's object is ready
+    //await until the profile's object inside users is ready
     if (users[0]) {
       for(let i = 0; i < users.length; i++){
         myUsers.push(<UserBox user={users[i]} key={i} />);

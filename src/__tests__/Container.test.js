@@ -28,6 +28,15 @@ describe('The connected Application should receive these props from state:', () 
   it('connected app should have a prop named search', () => {
     expect(wrapper.find(App).props()).toHaveProperty('search');
   });
+  it('connected app should have a prop named loginPageShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('loginPageShowing');
+  });
+  it('connected app should have a prop named unloggedPageShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('unloggedPageShowing');
+  });
+  it('connected app should have a prop named loggedPagesShowing', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('loggedPagesShowing');
+  });
   it('connected app should have a prop named tweetsShowing', () => {
     expect(wrapper.find(App).props()).toHaveProperty('tweetsShowing');
   });
@@ -73,8 +82,17 @@ describe('The connected Application should receive these action creators as prop
   it('connected app should have a prop named search', () => {
     expect(wrapper.find(App).props()).toHaveProperty('searchTwitter');
   });
+  it('connected app should have a prop named showLoginPage', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showLoginPage');
+  });
+  it('connected app should have a prop named showUnloggedPage', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showLoginPage');
+  });
   it('connected app should have a prop named showHomePage', () => {
     expect(wrapper.find(App).props()).toHaveProperty('showHomePage');
+  });
+  it('connected app should have a prop named showLoggedPages', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('showLoggedPages');
   });
   it('connected app should have a prop named showTweets', () => {
     expect(wrapper.find(App).props()).toHaveProperty('showTweets');

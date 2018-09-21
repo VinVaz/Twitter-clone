@@ -50,12 +50,13 @@ const LogInButtonStyle = {
 
 class Unlogged extends Component {
   render() {
+    const { showLoggedPages } = this.props;
     return (
       <div style={ ContainerStyle }>
         <h2>Log in to Twitter</h2>
         <input style={ emailInputStyle } placeholder="email"/>
         <input style={ passwordInputStyle } placeholder="password"/>
-        <button style={ LogInButtonStyle }>Log In</button>
+        <button style={ LogInButtonStyle } onClick={ showLoggedPages }>Log In</button>
       </div>
     );
   }

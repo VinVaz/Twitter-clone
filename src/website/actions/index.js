@@ -13,7 +13,13 @@ export const HANDLE_NEWTWEETS = 'HANDLE_NEWTWEETS';
 export const HANDLE_PROFILEBOX = 'HANDLE_PROFILEBOX';
 export const SHOW_BACKGROUND = 'HIDE_BACKGROUND';
 export const SHOW_CREATENEWTWEET = 'SHOW_CREATENEWTWEET';
+export const SHOW_UNLOGGED_PAGE = 'SHOW_UNLOGGED_PAGE';
+export const SHOW_LOGIN_PAGE = 'SHOW_LOGIN_PAGE';
+export const SHOW_LOGGED_PAGES = 'SHOW_LOGGED_PAGES';
 
+export const showLoggedPages = () => ({
+  type: SHOW_LOGGED_PAGES,
+});
 export const showCreateNewTweet = () => ({
   type: SHOW_CREATENEWTWEET,
 });
@@ -28,6 +34,12 @@ export const handleNewTweets = () => ({
 });
 export const handleProfileBox = () => ({
   type: HANDLE_PROFILEBOX,
+});
+export const showUnloggedPage = () => ({
+  type: SHOW_UNLOGGED_PAGE,
+});
+export const showLoginPage = () => ({
+  type: SHOW_LOGIN_PAGE,
 });
 export const showTweets = () => ({
   type: SHOW_TWEETS,

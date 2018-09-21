@@ -10,22 +10,35 @@ const searchInitialState = '';
 const randomText = 'fowireaspcqowmi';
 const randomName = 'fowipywmi';
 
-const interactionInitialState = {
-  likeButtonPressed: false,
-  replyTweetPressed: false,
-  retweetPressed: false,
-  followButtonPressed: false,
+const mainPagesToTrue =  {
+  loginPageShowing: true,
+  unloggedPageShowing: true,
+  tweetsShowing: true,
+  followingShowing: true,
+  followersShowing: true,
+  homePageShowing: true,
+  profileBoxShowing: true,
+  loggedPagesShowing: true,
 };
 const viewInitialState = {
+  loginPageShowing: false,
+  unloggedPageShowing: false,
+  loggedPagesShowing: false,
   tweetsShowing: false,
-  followersShowing: false,
   followingShowing: false,
+  followersShowing: false,
   homePageShowing: false,
   profileBoxShowing: false,
   threadShowing: false,
   newTweetsButtonShowing: false,
   backgroundIsHidden: false,
   createNewTweetIsShowing: false,
+};
+const interactionInitialState = {
+  likeButtonPressed: false,
+  replyTweetPressed: false,
+  retweetPressed: false,
+  followButtonPressed: false,
 };
 const reducersInitialState = {
   tweet: tweetInitialState,
@@ -64,6 +77,46 @@ describe('Test reducers', () => {
     };
     expect(view(undefined, {
       type: actions.SHOW_HOMEPAGE,
+    })).toEqual(viewState);
+  });
+  it('SHOW_HOMEPAGE should shut down the other main pages', () => {
+    const viewState = {
+      ...viewInitialState,
+      homePageShowing: true,
+    };
+    const initialStage = {
+      ...viewInitialState,
+      ...mainPagesToTrue,
+    }
+    expect(view(initialStage, {
+      type: actions.SHOW_HOMEPAGE,
+    })).toEqual(viewState);
+  });
+  it('view reducer should handle SHOW_UNLOGGED_PAGE', () => {
+    const viewState = {
+      ...viewInitialState,
+      unloggedPageShowing: true,
+    };
+    expect(view(undefined, {
+      type: actions.SHOW_UNLOGGED_PAGE,
+    })).toEqual(viewState);
+  });
+  it('view reducer should handle SHOW_LOGIN_PAGE', () => {
+    const viewState = {
+      ...viewInitialState,
+      loginPageShowing: true,
+    };
+    expect(view(undefined, {
+      type: actions.SHOW_LOGIN_PAGE,
+    })).toEqual(viewState);
+  });
+  it('view reducer should handle SHOW_LOGGED_PAGES', () => {
+    const viewState = {
+      ...viewInitialState,
+      loggedPagesShowing: true,
+    };
+    expect(view(undefined, {
+      type: actions.SHOW_LOGGED_PAGES,
     })).toEqual(viewState);
   });
   it('view reducer should handle SHOW_TWEETS', () => {
@@ -135,6 +188,7 @@ describe('Test reducers', () => {
     const combinedState = {
       ...viewInitialState,
       createNewTweetIsShowing: !viewInitialState.createNewTweetIsShowing,
+      backgroundIsHidden: !viewInitialState.backgroundIsHidden,
     };
     expect(view(undefined, {
       type: actions.SHOW_CREATENEWTWEET,

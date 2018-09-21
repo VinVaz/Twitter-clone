@@ -3,6 +3,8 @@ import Header from './Header';
 import HomeBody from './HomeBody';
 import Tweets from './Tweets';
 import CreateNewTweet from './CreateNewTweet';
+import Login from './Login';
+import Unlogged from './Unlogged';
 
 const FocusedStyle = {
   backgroundColor: '#f2f3ff',
@@ -50,6 +52,7 @@ class Home extends Component {
       showFollowing,
       showFollowers,
       showHomePage,
+      showUnloggedPage,
     } = this.props;
     return (
       <div>
@@ -58,7 +61,8 @@ class Home extends Component {
             profileBoxShowing={ profileBoxShowing }
             handleProfileBox={ handleProfileBox }
             showCreateNewTweet={ showCreateNewTweet }
-            showHomePage={ showFollowers}
+            showHomePage={ showHomePage}
+            showUnloggedPage={ showUnloggedPage }
           />
           <HomeBody 
             showThread={ showThread }
@@ -71,6 +75,8 @@ class Home extends Component {
             showFollowers={ showFollowers}
           />
         </div>
+        {false ? <Unlogged /> : null}
+        {false ? <Login /> : null}
         {threadShowing ? <Thread /> : null}
         {createNewTweetIsShowing ? <CreateNewTweet /> : null}
       </div>

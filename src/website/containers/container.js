@@ -3,6 +3,9 @@ import App from '../App';
 import {
   createTweet,
   searchTwitter,
+  showUnloggedPage,
+  showLoginPage,
+  showLoggedPages,
   showTweets,
   showFollowing,
   showFollowers,
@@ -29,6 +32,9 @@ const mapStateToProps = state => ({
   replyTweetPressed: state.interaction.replyTweetPressed,
   retweetPressed: state.interaction.retweetPressed,
   followButtonPressed: state.interaction.followButtonPressed,
+  unloggedPageShowing: state.view.unloggedPageShowing,
+  loginPageShowing: state.view.loginPageShowing,
+  loggedPagesShowing: state.view.loggedPagesShowing,
   threadShowing: state.view.threadShowing,
   newTweetsButtonShowing: state.view.newTweetsButtonShowing,
   profileBoxShowing: state.view.profileBoxShowing,
@@ -51,6 +57,9 @@ const mapDispatchToProps = dispatch => ({
   handleProfileBox: () => dispatch(handleProfileBox()),
   showBackground: () => dispatch(showBackground()),
   showCreateNewTweet: () => dispatch(showCreateNewTweet()),
+  showLoginPage: () => dispatch(showLoginPage()),
+  showLoggedPages: () => dispatch(showLoggedPages()),
+  showUnloggedPage: () => dispatch(showUnloggedPage()),
 });
 
 export default connect(

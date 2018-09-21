@@ -17,7 +17,6 @@ class HomeBody extends Component {
       showTweets,
       showFollowing,
       showFollowers,
-      showHomePage,
     } = this.props;
     return (
       <div style={ HomeBodyStyle }>
