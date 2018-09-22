@@ -1,30 +1,34 @@
 import * as types from '../actions/index';
 
+const resetState = {
+  homePageShowing: false,
+  tweetsShowing: false,
+  followingShowing: false,
+  followersShowing: false,
+};
+
 export const mainPages = (state = {
   loginPageShowing: false,
   loggedPagesShowing: false,
-  unloggedPageShowing: false,
+  unloggedPageShowing: true,
 }, action) => {
   switch (action.type) {
     case types.SHOW_LOGGED_PAGES:
       return {
-        ...state,
+        ...resetState,
         loggedPagesShowing: true,
       };
     case types.SHOW_UNLOGGED_PAGE:
       return {
-        ...state,
+        ...resetState,
         unloggedPageShowing: true,
       };
     case types.SHOW_LOGIN_PAGE:
       return {
-        ...state,
+        ...resetState,
         loginPageShowing: true,
       };
     default:
-      return {
-        ...state,
-        unloggedPageShowing: true,
-      };
+      return state;
   }
 };

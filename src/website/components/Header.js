@@ -53,7 +53,7 @@ class Header extends Component {
     return (
       <div style={ ContainerStyle }>
         <div style={HomeBoxStyle}>
-          <HeaderHomeButton/>
+          <HeaderHomeButton showHomePage={ showHomePage }/>
         </div>
         <div style={SearchBoxStyle}>
           <HeaderSearcher />

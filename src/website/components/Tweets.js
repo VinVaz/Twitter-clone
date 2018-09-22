@@ -11,7 +11,8 @@ class Tweets extends Component {
     tweets : '',
   }
   componentDidMount() {
-    fetchData('/api/user/following/tweets', 'GET').then((res) => {
+    const { url } = this.props;
+    fetchData(url, 'GET').then((res) => {
       if (res) {
         this.setState({
           tweets: res,

@@ -1,7 +1,10 @@
 import { tweet } from '../website/reducers/tweet';
 import { search } from '../website/reducers/search';
-import { view } from '../website/reducers/view';
+import { mainPages } from '../website/reducers/mainPages';
+import { loggedPage } from '../website/reducers/loggedPage';
+import { getUsers } from '../website/reducers/getUsers';
 import { interaction } from '../website/reducers/interaction';
+import view from '../website/reducers/view';
 import reducers from '../website/reducers/index';
 import * as actions from '../website/actions/index';
 
@@ -9,7 +12,7 @@ const tweetInitialState = '';
 const searchInitialState = '';
 const randomText = 'fowireaspcqowmi';
 const randomName = 'fowipywmi';
-
+/*
 const mainPagesToTrue =  {
   loginPageShowing: true,
   unloggedPageShowing: true,
@@ -20,19 +23,29 @@ const mainPagesToTrue =  {
   profileBoxShowing: true,
   loggedPagesShowing: true,
 };
-const viewInitialState = {
+*/
+const mainPagesInitialState = {
   loginPageShowing: false,
   unloggedPageShowing: false,
   loggedPagesShowing: false,
-  tweetsShowing: false,
-  followingShowing: false,
-  followersShowing: false,
-  homePageShowing: false,
+};
+const loggedPageInitialState = {
   profileBoxShowing: false,
   threadShowing: false,
   newTweetsButtonShowing: false,
   backgroundIsHidden: false,
   createNewTweetIsShowing: false,
+};
+const getUsersInitialState = {
+  tweetsShowing: false,
+  followingShowing: false,
+  followersShowing: false,
+  homePageShowing: false,
+};
+const viewInitialState = {
+  mainPages: mainPagesInitialState,
+  loggedPage: loggedPageInitialState,
+  getUsers: getUsersInitialState,
 };
 const interactionInitialState = {
   likeButtonPressed: false,
@@ -70,17 +83,9 @@ describe('Test reducers', () => {
   it('view reducer should return the initial state', () => {
     expect(view(undefined, {})).toEqual(viewInitialState);
   });
-  it('view reducer should handle SHOW_HOMEPAGE', () => {
-    const viewState = {
-      ...viewInitialState,
-      homePageShowing: true,
-    };
-    expect(view(undefined, {
-      type: actions.SHOW_HOMEPAGE,
-    })).toEqual(viewState);
-  });
+  /*
   it('SHOW_HOMEPAGE should shut down the other main pages', () => {
-    const viewState = {
+    const combinedState = {
       ...viewInitialState,
       homePageShowing: true,
     };
@@ -90,107 +95,131 @@ describe('Test reducers', () => {
     }
     expect(view(initialStage, {
       type: actions.SHOW_HOMEPAGE,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
-  it('view reducer should handle SHOW_UNLOGGED_PAGE', () => {
-    const viewState = {
-      ...viewInitialState,
+  */
+  it('mainPages reducer should start with unloggedPageShowing:true', () => {
+    const combinedState = {
+      ...mainPagesInitialState,
       unloggedPageShowing: true,
     };
-    expect(view(undefined, {
-      type: actions.SHOW_UNLOGGED_PAGE,
-    })).toEqual(viewState);
+    expect(mainPages(undefined, {})).toEqual(combinedState);
   });
-  it('view reducer should handle SHOW_LOGIN_PAGE', () => {
-    const viewState = {
-      ...viewInitialState,
+  it('mainPages reducer should handle SHOW_UNLOGGED_PAGE', () => {
+    const combinedState = {
+      ...mainPagesInitialState,
+      unloggedPageShowing: true,
+    };
+    expect(mainPages(undefined, {
+      type: actions.SHOW_UNLOGGED_PAGE,
+    })).toEqual(combinedState);
+  });
+  it('mainPages reducer should handle SHOW_LOGIN_PAGE', () => {
+    const combinedState = {
+      ...mainPagesInitialState,
       loginPageShowing: true,
     };
-    expect(view(undefined, {
+    expect(mainPages(undefined, {
       type: actions.SHOW_LOGIN_PAGE,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
-  it('view reducer should handle SHOW_LOGGED_PAGES', () => {
-    const viewState = {
-      ...viewInitialState,
+  it('mainPages reducer should handle SHOW_LOGGED_PAGES', () => {
+    const combinedState = {
+      ...mainPagesInitialState,
       loggedPagesShowing: true,
     };
-    expect(view(undefined, {
+    expect(mainPages(undefined, {
       type: actions.SHOW_LOGGED_PAGES,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
-  it('view reducer should handle SHOW_TWEETS', () => {
-    const viewState = {
-      ...viewInitialState,
+  it('getUsers reducer should start with homePageShowing:true', () => {
+    const combinedState = {
+      ...getUsersInitialState,
+      homePageShowing: true,
+    };
+    expect(getUsers(undefined, {})).toEqual(combinedState);
+  });
+  it('getUsers reducer should handle SHOW_TWEETS', () => {
+    const combinedState = {
+      ...getUsersInitialState,
       tweetsShowing: true,
     };
-    expect(view(undefined, {
+    expect(getUsers(undefined, {
       type: actions.SHOW_TWEETS,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
-  it('view reducer should handle SHOW_FOLLOWING', () => {
-    const viewState = {
-      ...viewInitialState,
+  it('getUsers reducer should handle SHOW_FOLLOWING', () => {
+    const combinedState = {
+      ...getUsersInitialState,
       followingShowing: true,
     };
-    expect(view(undefined, {
+    expect(getUsers(undefined, {
       type: actions.SHOW_FOLLOWING,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
-  it('view reducer should handle SHOW_FOLLOWERS', () => {
-    const viewState = {
-      ...viewInitialState,
+  it('getUsers reducer should handle SHOW_FOLLOWERS', () => {
+    const combinedState = {
+      ...getUsersInitialState,
       followersShowing: true,
     };
-    expect(view(undefined, {
+    expect(getUsers(undefined, {
       type: actions.SHOW_FOLLOWERS,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
-  it('view should handle SHOW_THREAD', () => {
+  it('loggedPage should handle SHOW_THREAD', () => {
     const combinedState = {
-      ...viewInitialState,
-      threadShowing: !viewInitialState.threadShowing,
-      backgroundIsHidden: !viewInitialState.backgroundIsHidden,
+      ...loggedPageInitialState,
+      threadShowing: !loggedPageInitialState.threadShowing,
+      backgroundIsHidden: !loggedPageInitialState.backgroundIsHidden,
     };
-    expect(view(undefined, {
+    expect(loggedPage(undefined, {
       type: actions.SHOW_THREAD,
     })).toEqual(combinedState);
   });
-  it('view should handle SHOW_BACKGROUND', () => {
+   it('loggedPage reducer should handle SHOW_HOMEPAGE', () => {
     const combinedState = {
-      ...viewInitialState,
+      ...loggedPageInitialState,
+      homePageShowing: true,
+    };
+    expect(loggedPage(undefined, {
+      type: actions.SHOW_HOMEPAGE,
+    })).toEqual(combinedState);
+  });
+  it('loggedPage should handle SHOW_BACKGROUND', () => {
+    const combinedState = {
+      ...loggedPageInitialState,
       backgroundIsHidden: false,
       threadShowing: false,
     };
-    expect(view(undefined, {
+    expect(loggedPage(undefined, {
       type: actions.SHOW_BACKGROUND,
     })).toEqual(combinedState);
   });
-  it('view should handle HANDLE_NEWTWEETS', () => {
+  it('loggedPage should handle HANDLE_NEWTWEETS', () => {
     const combinedState = {
-      ...viewInitialState,
-      newTweetsButtonShowing: !viewInitialState.newTweetsButtonShowing,
+      ...loggedPageInitialState,
+      newTweetsButtonShowing: !loggedPageInitialState.newTweetsButtonShowing,
     };
-    expect(view(undefined, {
+    expect(loggedPage(undefined, {
       type: actions.HANDLE_NEWTWEETS,
     })).toEqual(combinedState);
   });
-  it('view should handle HANDLE_PROFILEBOX', () => {
+  it('loggedPage should handle HANDLE_PROFILEBOX', () => {
     const combinedState = {
-      ...viewInitialState,
-      profileBoxShowing: !viewInitialState.profileBoxShowing,
+      ...loggedPageInitialState,
+      profileBoxShowing: !loggedPageInitialState.profileBoxShowing,
     };
-    expect(view(undefined, {
+    expect(loggedPage(undefined, {
       type: actions.HANDLE_PROFILEBOX,
     })).toEqual(combinedState);
   });
-  it('view should handle SHOW_CREATENEWTWEET', () => {
+  it('loggedPage should handle SHOW_CREATENEWTWEET', () => {
     const combinedState = {
-      ...viewInitialState,
-      createNewTweetIsShowing: !viewInitialState.createNewTweetIsShowing,
-      backgroundIsHidden: !viewInitialState.backgroundIsHidden,
+      ...loggedPageInitialState,
+      createNewTweetIsShowing: !loggedPageInitialState.createNewTweetIsShowing,
+      backgroundIsHidden: !loggedPageInitialState.backgroundIsHidden,
     };
-    expect(view(undefined, {
+    expect(loggedPage(undefined, {
       type: actions.SHOW_CREATENEWTWEET,
     })).toEqual(combinedState);
   });
@@ -199,40 +228,40 @@ describe('Test reducers', () => {
     expect(interaction(undefined, {})).toEqual(interactionInitialState);
   });
   it('interaction reducer should handle REPLY_TWEET', () => {
-    const viewState = {
+    const combinedState = {
       ...interactionInitialState,
       replyTweetPressed: !interactionInitialState.replyTweetPressed,
     };
     expect(interaction(undefined, {
       type: actions.REPLY_TWEET,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
   it('interaction reducer should handle RETWEET', () => {
-    const viewState = {
+    const combinedState = {
       ...interactionInitialState,
       retweetPressed: !interactionInitialState.retweetPressed,
     };
     expect(interaction(undefined, {
       type: actions.RETWEET,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
   it('interaction reducer should handle FOLLOW_SOMEONE', () => {
-    const viewState = {
+    const combinedState = {
       ...interactionInitialState,
       followButtonPressed: !interactionInitialState.followButtonPressed,
     };
     expect(interaction(undefined, {
       type: actions.FOLLOW_SOMEONE,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
   it('interaction reducer should handle LIKE_TWEET', () => {
-    const viewState = {
+    const combinedState = {
       ...interactionInitialState,
       likeButtonPressed: !interactionInitialState.likeButtonPressed,
     };
     expect(interaction(undefined, {
       type: actions.LIKE_TWEET,
-    })).toEqual(viewState);
+    })).toEqual(combinedState);
   });
 
   it('reducers should return initial state', () => {

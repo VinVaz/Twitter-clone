@@ -1,7 +1,14 @@
 import * as types from '../actions/index';
 
-export const view = (state = {
+const resetState = {
   homePageShowing: false,
+  tweetsShowing: false,
+  followingShowing: false,
+  followersShowing: false,
+};
+
+export const getUsers = (state = {
+  homePageShowing: true,
   tweetsShowing: false,
   followingShowing: false,
   followersShowing: false,
@@ -9,28 +16,25 @@ export const view = (state = {
   switch (action.type) {
     case types.SHOW_HOMEPAGE:
       return {
-        ...state,
+        ...resetState,
         homePageShowing: true,
       };
     case types.SHOW_TWEETS:
       return {
-        ...state,
+        ...resetState,
         tweetsShowing: true,
       };
     case types.SHOW_FOLLOWING:
       return {
-        ...state,
+        ...resetState,
         followingShowing: true,
       };
     case types.SHOW_FOLLOWERS:
       return {
-        ...state,
+        ...resetState,
         followersShowing: true,
       };
     default:
-      return {
-        ...state,
-        homePageShowing: true,
-      };;
+      return state;
   }
 };

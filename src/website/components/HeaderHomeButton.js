@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class HeaderHomeButton extends Component {
   render() {
-    return (<button>Home</button>);
+    const {showHomePage} = this.props;
+    return (<button onClick={ showHomePage }>Home</button>);
   }
 }
 
