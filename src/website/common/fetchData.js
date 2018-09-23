@@ -11,12 +11,15 @@ export default function (url = ``, myMethod = 'GET', data = {}) {
       referrer: "no-referrer", // no-referrer, *client
   };
   if (myMethod === 'POST' || myMethod === 'PUT') {
-    myHeaders.append('Content-Type', 'application/json');
+    init.headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
     init.body = JSON.stringify(data);
   }
   return fetch(url, init)
     .then(response => {
-      if (response.status === 200) {
+      if (response.ok) {
         return response.json();
       } else throw new Error('Network response was not ok.')
     })

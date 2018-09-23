@@ -22,6 +22,7 @@ function UserHandler() {
   this.getFollowers = function (req, res) {
     UserSchema
       .aggregate([
+        {$match: {"following.userName" : '@jojohn'}},
         {$project: {_id: 0, 'publicInfo': 1}},
         {$group: { _id:null, publicInfo:{ $push: '$publicInfo'}}},
         {$project: {_id: 0, 'publicInfo': 1}},
@@ -34,6 +35,7 @@ function UserHandler() {
   this.getFollowing = function (req, res) {
     UserSchema
       .aggregate([
+        {$match: {"followers.userName" : '@jojohn'}},
         {$project: {_id: 0, 'publicInfo': 1}},
         {$group: { _id:null, publicInfo:{ $push: '$publicInfo'}}},
         {$project: {_id: 0, 'publicInfo': 1}},
@@ -46,13 +48,24 @@ function UserHandler() {
   this.getFollwingTweets = function (req, res) {
     UserSchema
       .aggregate([
-        {$match: {"publicInfo.profile.name" : {$ne: "John Stans"}}},
+        {$match: {"followers.userName" : '@jojohn'}},
         {$project: {_id: 0, 'tweets': 1}},
         {$unwind: '$tweets'},
         {$group: { _id:null, tweets:{ $push: '$tweets'}}},
         {$project: {_id: 0, 'tweets': 1}},
       ])
       .exec(function (err, result) {
+        if(err){throw err;}
+        res.json(result[0].tweets);
+      });
+	};
+  this.followUser = function (req, res) {
+    const userName = req.body.userName;
+    UserSchema
+      .findOneAndUpdate(
+        {"publicInfo.profile.name" : "John Stans" }, 
+        {$addToSet: {"followers.userName": userName}}
+      ).exec(function (err, result) {
         if(err){throw err;}
         res.json(result[0].tweets);
       });

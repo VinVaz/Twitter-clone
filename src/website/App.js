@@ -8,6 +8,7 @@ class App extends Component {
       handleProfileBox,
       threadShowing,
       showThread,
+      followSomeone,
       backgroundIsHidden,
       showBackground,
       showCreateNewTweet,
@@ -51,6 +52,7 @@ class App extends Component {
       showUnloggedPage={ showUnloggedPage }
       loggedPagesShowing= { loggedPagesShowing }
       showLoggedPages={ showLoggedPages }
+      followSomeone={ followSomeone }
     />);
   }
 }

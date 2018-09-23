@@ -2,12 +2,23 @@
 
 const path = process.cwd();
 const UserSchema = require('../models/user.js');
+const user1 = require('../models/user1.js');
+const user2 = require('../models/user2.js');
+const user3 = require('../models/user3.js');
 
 function TweetsHandler() {
-	
+	/*
+   this.save = function(req, res) {
+    let newUser = new UserSchema(user3);
+    newUser
+      .save(function(err){
+        if(err) throw err;
+      })
+      res.redirect('/')
+	};*/
   this.tweetsShowing = function(req, res) {
     UserSchema
-      .findOne({})
+      .findOne({"publicInfo.profile.name" : "Juan Ortega" })
       .exec(function(err, result){
         if(err){throw err;}
         res.json(result);

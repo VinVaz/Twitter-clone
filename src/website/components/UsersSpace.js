@@ -20,11 +20,12 @@ class UsersSpace extends Component {
   }
   generateUserBoxes() {
     const { users } = this.state;
+    const { followSomeone } = this.props;
     let myUsers = [];
     //await until the profile's object inside users is ready
     if (users[0]) {
       for(let i = 0; i < users.length; i++){
-        myUsers.push(<UserBox user={users[i]} key={i} />);
+        myUsers.push(<UserBox user={users[i]} key={i} followSomeone={ followSomeone }/>);
       }
       return myUsers;
     } else {

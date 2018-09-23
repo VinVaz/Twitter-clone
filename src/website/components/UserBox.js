@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FollowButton from './FollowButton';
 
 const ContainerStyle = {
   position: 'relative',
@@ -37,13 +38,12 @@ const NickNameStyle = {
   top: '45px',
   left: '80px',
 };
-
 class UserBox extends Component {
   render() {
-    const { user } = this.props;
+    const { user, followSomeone } = this.props;
     return (
       <div style={ ContainerStyle }>
-        <button>Follow</button>
+        <FollowButton followSomeone={ followSomeone } userName={ user.profile.userName}/>
         <div style={ HeaderStyle }>
           <div style={ UserPictureStyle }>{ user.profile.picture }</div>
           <div style={ NameStyle }>{ user.profile.name }</div>

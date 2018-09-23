@@ -40,6 +40,7 @@ class Home extends Component {
       handleProfileBox,
       threadShowing,
       showThread,
+      followSomeone,
       backgroundIsHidden,
       showBackground,
       createNewTweetIsShowing,
@@ -73,6 +74,7 @@ class Home extends Component {
             showTweets={ showTweets}
             showFollowing={ showFollowing}
             showFollowers={ showFollowers}
+            followSomeone={ followSomeone }
           />
         </div>
         {false ? <Unlogged /> : null}

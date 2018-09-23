@@ -10,6 +10,7 @@ class Pages extends Component {
       handleProfileBox,
       threadShowing,
       showThread,
+      followSomeone,
       backgroundIsHidden,
       showBackground,
       showCreateNewTweet,
@@ -56,6 +57,7 @@ class Pages extends Component {
           showFollowing={ showFollowing}
           showFollowers={ showFollowers}
           showUnloggedPage={ showUnloggedPage }
+          followSomeone={ followSomeone }
         /> : null}
       </div>
     );

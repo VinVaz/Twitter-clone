@@ -10,6 +10,7 @@ class HomeBody extends Component {
   render() {
     const { 
       showThread,
+      followSomeone,
       followingShowing,
       followersShowing,
       homePageShowing,
@@ -31,6 +32,7 @@ class HomeBody extends Component {
           followersShowing={ followersShowing}
           homePageShowing={ homePageShowing}
           tweetsShowing={ tweetsShowing}
+          followSomeone={ followSomeone }
         />
       </div>
     );

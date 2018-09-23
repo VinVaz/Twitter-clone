@@ -35,11 +35,11 @@ const UserSchema = new Schema({
   }],
   following: [{
     _id: false,
-    identification: Schema.Types.ObjectId,
+    userName: String,
   }],
   followers: [{
     _id: false,
-    identification: Schema.Types.ObjectId,
+    userName: String,
   }],
 });
 
