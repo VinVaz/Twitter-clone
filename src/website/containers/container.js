@@ -19,6 +19,8 @@ import {
   handleProfileBox,
   showBackground,
   showCreateNewTweet,
+  setUserOnSight,
+  setLoggedUser,
 } from '../actions';
 
 const mapStateToProps = state => ({
@@ -40,10 +42,14 @@ const mapStateToProps = state => ({
   profileBoxShowing: state.view.loggedPage.profileBoxShowing,
   backgroundIsHidden: state.view.loggedPage.backgroundIsHidden,
   createNewTweetIsShowing: state.view.loggedPage.createNewTweetIsShowing,
+  loggedUser: state.user.loggedUser,
+  userOnSight: state.user.userOnSight,
 });
 const mapDispatchToProps = dispatch => ({
   createTweet: text => dispatch(createTweet(text)),
   searchTwitter: text => dispatch(searchTwitter(text)),
+  setUserOnSight: userName => dispatch(setUserOnSight(userName)),
+  setLoggedUser: userName => dispatch(setLoggedUser(userName)),
   showTweets: () => dispatch(showTweets()),
   showHomePage: () => dispatch(showHomePage()),
   showFollowing: () => dispatch(showFollowing()),

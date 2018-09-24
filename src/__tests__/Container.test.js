@@ -73,6 +73,12 @@ describe('The connected Application should receive these props from state:', () 
   it('connected app should have a prop named profileBoxShowing', () => {
     expect(wrapper.find(App).props()).toHaveProperty('profileBoxShowing');
   });
+  it('connected app should have a prop named loggedUser', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('loggedUser');
+  });
+  it('connected app should have a prop named userOnSight', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('userOnSight');
+  });
 });
 
 describe('The connected Application should receive these action creators as props:', () => {
@@ -126,5 +132,11 @@ describe('The connected Application should receive these action creators as prop
   });
   it('connected app should have a prop named handleProfileBox', () => {
     expect(wrapper.find(App).props()).toHaveProperty('handleProfileBox');
+  });
+   it('connected app should have a prop named setLoggedUser', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('setLoggedUser');
+  });
+  it('connected app should have a prop named setUserOnSight', () => {
+    expect(wrapper.find(App).props()).toHaveProperty('setUserOnSight');
   });
 });

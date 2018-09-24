@@ -69,8 +69,9 @@ class UserBox extends Component {
     name: '',
     picture: '',
   }
-  componentDidMount() {
-    fetchData(`/api/user/info`, 'GET').then((res) => {
+  fetchUserInfo = () => {
+    const { userOnSight } = this.props;
+    fetchData(`/api/${userOnSight}/info`, 'GET').then((res) => {
       if (res) {
         this.setState({
           tweets: res.numberOfTweets,
@@ -83,6 +84,14 @@ class UserBox extends Component {
       }
     });
   }
+  componentDidMount() {
+    this.fetchUserInfo();
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.userOnSight !== prevProps.userOnSight) {
+      this.fetchUserInfo();
+    }
+  }
   render() {
     const {
       tweets,
@@ -91,9 +100,9 @@ class UserBox extends Component {
       userName,
       name,
       picture,
-      
+      userOnSight
     } = this.state;
-    
+
     const {
       showTweets,
       showFollowing,

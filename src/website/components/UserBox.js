@@ -11,6 +11,7 @@ const ContainerStyle = {
   margin: '0 0 10px 10px',
   borderRadius: '4px',
   backgroundColor: '#c9d4c6',
+  zIndex: '1',
 };
 const HeaderStyle = {
   position: 'absolute',
@@ -39,10 +40,15 @@ const NickNameStyle = {
   left: '80px',
 };
 class UserBox extends Component {
+  changeUser = () => {
+    const { user, setUserOnSight } = this.props;
+    const userName = user.profile.userName;
+    setUserOnSight(userName);
+  }
   render() {
     const { user, followSomeone } = this.props;
     return (
-      <div style={ ContainerStyle }>
+      <div style={ ContainerStyle } onClick={ this.changeUser }>
         <FollowButton followSomeone={ followSomeone } userName={ user.profile.userName}/>
         <div style={ HeaderStyle }>
           <div style={ UserPictureStyle }>{ user.profile.picture }</div>

@@ -10,15 +10,16 @@ module.exports = function(app){
 	const userServer = new UserServer();
   const tweetsServer = new TweetsServer();
 	
-  app.get('/api/user/info', userServer.getPublicInfo);
-  app.get('/api/user/tweets', userServer.getUserTweets);
-  app.get('/api/user/followers/info', userServer.getFollowers);
-  app.get('/api/user/following/info', userServer.getFollowing);
-  app.get('/api/user/following/tweets', userServer.getFollwingTweets);
-  app.get('/api/user/tweet/replies', tweetsServer.getReplies);
+  
+  app.get('/api/:user/info', userServer.getPublicInfo);
+  app.get('/api/:user/tweets', userServer.getUserTweets);
+  app.get('/api/:user/followers/info', userServer.getFollowers);
+  app.get('/api/:user/following/info', userServer.getFollowing);
+  app.get('/api/:user/following/tweets', userServer.getFollwingTweets);
+  app.get('/api/:user/tweet/replies', tweetsServer.getReplies);
   //app.get('/api/tweets', tweetsServer.tweetsShowing);
   
   //app.get('/api/save', tweetsServer.save);
   
-  app.post('/api/user/action/follow', userServer.followUser);
+  app.post('/api/:user/action/follow', userServer.followUser);
 };

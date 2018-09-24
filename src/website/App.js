@@ -27,6 +27,10 @@ class App extends Component {
       showLoginPage,
       showLoggedPages,
       showUnloggedPage,
+      setUserOnSight,
+      setLoggedUser,
+      userOnSight,
+      loggedUser,
     } = this.props;
 
     return (<Pages
@@ -53,6 +57,10 @@ class App extends Component {
       loggedPagesShowing= { loggedPagesShowing }
       showLoggedPages={ showLoggedPages }
       followSomeone={ followSomeone }
+      setUserOnSight={ setUserOnSight }
+      setLoggedUser={ setLoggedUser }
+      userOnSight={ userOnSight }
+      loggedUser={ loggedUser }
     />);
   }
 }

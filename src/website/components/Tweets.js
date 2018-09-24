@@ -10,7 +10,7 @@ class Tweets extends Component {
   state = {
     tweets : '',
   }
-  componentDidMount() {
+  fetchUserTweet = () => {
     const { url } = this.props;
     fetchData(url, 'GET').then((res) => {
       if (res) {
@@ -19,6 +19,14 @@ class Tweets extends Component {
         });
       }
     });
+  }
+  componentDidMount() {
+    this.fetchUserTweet();
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.userName !== prevProps.userName) {
+      this.fetchUserTweet();
+    }
   }
   generateTweets() {
     const { showThread } = this.props;

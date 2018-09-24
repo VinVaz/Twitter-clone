@@ -14,6 +14,7 @@ class HomeBodyLeft extends Component {
       showTweets,
       showFollowing,
       showFollowers,
+      userOnSight,
     } = this.props;
     return (
       <div style={ HomeBodyLeftStyle }>
@@ -21,6 +22,7 @@ class HomeBodyLeft extends Component {
           showTweets={ showTweets}
           showFollowing={ showFollowing}
           showFollowers={ showFollowers}
+          userOnSight={ userOnSight }
         />
       </div>
     );

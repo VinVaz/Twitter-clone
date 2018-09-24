@@ -7,19 +7,19 @@ const ButtonStyle = {
 
 class FollowButton extends Component {
   state = {
-    users : {},
+    user : {},
   }
-  componentDidMount() {
+  followUser = () => {
     const { userName, typeOfUsers } = this.props;
     fetchData('/api/user/action/follow', 'POST', {userName}).then((res) => {
       this.setState({
-        users: res,
+        user: res,
       });
     });
   }
   render() {
     return (
-      <button>Follow</button>
+      <button onClick={ this.followUser }>Follow</button>
     );
   }
 }

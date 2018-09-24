@@ -10,22 +10,37 @@ class UsersSpace extends Component {
   state = {
     users : {},
   }
-  componentDidMount() {
-    const { typeOfUsers } = this.props;
-    fetchData(`/api/user/${ typeOfUsers }/info`, 'GET').then((res) => {
+  fetchUserInfo = () => {
+    const { typeOfUsers, userName } = this.props;
+    fetchData(`/api/${ userName }/${ typeOfUsers }/info`, 'GET').then((res) => {
       this.setState({
         users: res,
       });
     });
   }
+  componentDidMount() {
+    this.fetchUserInfo();
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.userName !== prevProps.userName) {
+      this.fetchUserInfo();
+    }
+  }
   generateUserBoxes() {
     const { users } = this.state;
-    const { followSomeone } = this.props;
+    const { followSomeone, setUserOnSight } = this.props;
     let myUsers = [];
     //await until the profile's object inside users is ready
     if (users[0]) {
       for(let i = 0; i < users.length; i++){
-        myUsers.push(<UserBox user={users[i]} key={i} followSomeone={ followSomeone }/>);
+        myUsers.push(
+          <UserBox 
+            user={users[i]} 
+            key={i} 
+            followSomeone={ followSomeone } 
+            setUserOnSight={ setUserOnSight }
+          />
+        );
       }
       return myUsers;
     } else {

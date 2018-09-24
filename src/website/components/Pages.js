@@ -29,6 +29,9 @@ class Pages extends Component {
       showUnloggedPage,
       showLoggedPages,
       loggedPagesShowing,
+      setUserOnSight,
+      userOnSight,
+      loggedUser,
     } = this.props;
     
     return (
@@ -58,6 +61,9 @@ class Pages extends Component {
           showFollowers={ showFollowers}
           showUnloggedPage={ showUnloggedPage }
           followSomeone={ followSomeone }
+          setUserOnSight={ setUserOnSight }
+          userOnSight={ userOnSight }
+          loggedUser={ loggedUser }
         /> : null}
       </div>
     );

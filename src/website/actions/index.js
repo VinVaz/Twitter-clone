@@ -16,7 +16,17 @@ export const SHOW_CREATENEWTWEET = 'SHOW_CREATENEWTWEET';
 export const SHOW_UNLOGGED_PAGE = 'SHOW_UNLOGGED_PAGE';
 export const SHOW_LOGIN_PAGE = 'SHOW_LOGIN_PAGE';
 export const SHOW_LOGGED_PAGES = 'SHOW_LOGGED_PAGES';
+export const SET_LOGGED_USER = 'SET_LOGGED_USER';
+export const SET_USER_ON_SIGHT = 'SET_USER_ON_SIGHT';
 
+export const setLoggedUser = userName => ({
+  type: SET_LOGGED_USER,
+  userName,
+});
+export const setUserOnSight = userName => ({
+  type: SET_USER_ON_SIGHT,
+  userName,
+});
 export const showLoggedPages = () => ({
   type: SHOW_LOGGED_PAGES,
 });

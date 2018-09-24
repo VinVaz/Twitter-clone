@@ -1,5 +1,6 @@
 import { tweet } from '../website/reducers/tweet';
 import { search } from '../website/reducers/search';
+import { user } from '../website/reducers/user';
 import { mainPages } from '../website/reducers/mainPages';
 import { loggedPage } from '../website/reducers/loggedPage';
 import { getUsers } from '../website/reducers/getUsers';
@@ -53,11 +54,16 @@ const interactionInitialState = {
   retweetPressed: false,
   followButtonPressed: false,
 };
+const userInitialState = {
+  loggedUser: '',
+  userOnSight: '',
+};
 const reducersInitialState = {
   tweet: tweetInitialState,
   search: searchInitialState,
   interaction: interactionInitialState,
   view: viewInitialState,
+  user: userInitialState,
 };
 
 describe('Test reducers', () => {
@@ -98,6 +104,31 @@ describe('Test reducers', () => {
     })).toEqual(combinedState);
   });
   */
+  
+  it('user reducer should return the initial state', () => {
+    expect(user(undefined, {})).toEqual(userInitialState);
+  });
+  it('user should handle SET_LOGGED_USER', () => {
+    const combinedState = {
+      ...userInitialState,
+      loggedUser: randomName,
+    };
+    expect(user(undefined, {
+      type: actions.SET_LOGGED_USER,
+      userName: randomName,
+    })).toEqual(combinedState);
+  });
+  it('user should handle SET_USER_ON_SIGHT', () => {
+    const combinedState = {
+      ...userInitialState,
+      userOnSight: randomName,
+    };
+    expect(user(undefined, {
+      type: actions.SET_USER_ON_SIGHT,
+      userName: randomName,
+    })).toEqual(combinedState);
+  });
+  
   it('mainPages reducer should start with unloggedPageShowing:true', () => {
     const combinedState = {
       ...mainPagesInitialState,

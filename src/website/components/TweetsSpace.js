@@ -7,32 +7,33 @@ class TweetsSpace extends Component {
   state = {
     hasNewTweets: true,
   }
-  userTweetsBlock() {
-    const { showThread } = this.props;
+  TweetsBox() {
+    const { showThread, userName } = this.props;
+    const myUrl = `/api/${userName}/following/tweets`;
     return (
       <div>
         <TweetInputBox />
         {this.state.hasNewTweets ? <NewTweets /> : null }
         <Tweets 
           showThread={ showThread }
-          url = { '/api/user/tweets' }
+          url = { myUrl }
         />
       </div>
     );
   }
-  userFollowingTweets() {
-    const { showThread } = this.props;
+  userTweets() {
+    const { showThread, userName } = this.props;
     return (<Tweets 
       showThread={ showThread }
-      url = { '/api/user/following/tweets' }
+      url = { `/api/${userName}/tweets` }
     />);
   }
   render() {
   const { ownershipOfTweets } = this.props;
     return (
       <div>
-        {ownershipOfTweets == 'user' ? this.userTweetsBlock() : null}
-        {ownershipOfTweets == 'following' ? this.userFollowingTweets() : null}
+        {ownershipOfTweets == 'user' ? this.userTweets() : null}
+        {ownershipOfTweets == 'following' ? this.TweetsBox() : null}
       </div>
     );
   }

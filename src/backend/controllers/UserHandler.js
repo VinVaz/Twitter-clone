@@ -4,25 +4,28 @@ const UserSchema = require('../models/user.js');
 
 function UserHandler() {
 	this.getPublicInfo = function (req, res) {
+    const userName = req.params.user;
     UserSchema
-      .findOne({"publicInfo.profile.name" : "John Stans" }, {'publicInfo': true, '_id': false})
+      .findOne({"publicInfo.profile.userName" : userName }, {'publicInfo': true, '_id': false})
       .exec(function (err, result) {
         if(err){throw err;}
         res.json(result.publicInfo);
       });
 	};
   this.getUserTweets = function (req, res) {
+    const userName = req.params.user;
     UserSchema
-      .findOne({"publicInfo.profile.name" : "John Stans" }, {'tweets._id': false})
+      .findOne({"publicInfo.profile.userName" : userName }, {'tweets._id': false})
       .exec(function (err, result) {
         if(err){throw err;}
         res.json(result.tweets);
       });
 	};
   this.getFollowers = function (req, res) {
+    const userName = req.params.user;
     UserSchema
       .aggregate([
-        {$match: {"following.userName" : '@jojohn'}},
+        {$match: {"following.userName" : userName}},
         {$project: {_id: 0, 'publicInfo': 1}},
         {$group: { _id:null, publicInfo:{ $push: '$publicInfo'}}},
         {$project: {_id: 0, 'publicInfo': 1}},
@@ -33,9 +36,10 @@ function UserHandler() {
       });
 	};
   this.getFollowing = function (req, res) {
+    const userName = req.params.user;
     UserSchema
       .aggregate([
-        {$match: {"followers.userName" : '@jojohn'}},
+        {$match: {"followers.userName" : userName}},
         {$project: {_id: 0, 'publicInfo': 1}},
         {$group: { _id:null, publicInfo:{ $push: '$publicInfo'}}},
         {$project: {_id: 0, 'publicInfo': 1}},
@@ -61,13 +65,22 @@ function UserHandler() {
 	};
   this.followUser = function (req, res) {
     const userName = req.body.userName;
+    const loggedUser = "@jojohn";
+    
     UserSchema
       .findOneAndUpdate(
-        {"publicInfo.profile.name" : "John Stans" }, 
-        {$addToSet: {"followers.userName": userName}}
-      ).exec(function (err, result) {
+        {"publicInfo.profile.userName" : loggedUser }, 
+        {$addToSet: {'following': {'userName': userName }},
+      }).exec(function (err, result) {
         if(err){throw err;}
-        res.json(result[0].tweets);
+      });
+    UserSchema
+      .findOneAndUpdate(
+        {"publicInfo.profile.userName" : userName }, 
+        {$addToSet: {'followers': {'userName':  loggedUser}},
+      }).exec(function (err, result) {
+        if(err){throw err;}
+        res.json(result)
       });
 	};
 }

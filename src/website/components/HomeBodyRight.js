@@ -19,19 +19,32 @@ class HomeBodyRight extends Component {
       homePageShowing,
       tweetsShowing,
       followSomeone,
+      setUserOnSight,
+      userOnSight,
     } = this.props;
     return (
       <div style={ ContainerStyle }>
         {homePageShowing ? <TweetsSpace
           showThread={ showThread }
-          ownershipOfTweets={ 'user' }
+          ownershipOfTweets={ 'following' }
+          userName={ userOnSight }
         /> : null}
         {tweetsShowing ? <TweetsSpace 
           showThread={ showThread }
-          ownershipOfTweets={ 'following' }
+          ownershipOfTweets={ 'user' }
+          userName={ userOnSight }
         /> : null}
-        {followersShowing ? <UsersSpace typeOfUsers={ 'followers' } followSomeone={ followSomeone }/> : null}
-        {followingShowing ? <UsersSpace typeOfUsers={ 'following' }/> : null}
+        {followersShowing ? <UsersSpace
+          typeOfUsers={ 'followers' }
+          followSomeone={ followSomeone }
+          userName={ userOnSight }
+          setUserOnSight={ setUserOnSight }
+          /> : null}
+        {followingShowing ? <UsersSpace
+          typeOfUsers={ 'following' }
+          userName={ userOnSight }
+          setUserOnSight={ setUserOnSight }
+        /> : null}
       </div>
     );
   }

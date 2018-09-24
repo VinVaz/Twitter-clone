@@ -18,13 +18,18 @@ class HomeBody extends Component {
       showTweets,
       showFollowing,
       showFollowers,
+      setUserOnSight,
+      userOnSight,
+      loggedUser,
     } = this.props;
+    console.log(userOnSight)
     return (
       <div style={ HomeBodyStyle }>
         <HomeBodyLeft
           showTweets={ showTweets}
           showFollowing={ showFollowing}
           showFollowers={ showFollowers}
+          userOnSight={ userOnSight }
         />
         <HomeBodyRight 
           showThread={ showThread }
@@ -33,6 +38,9 @@ class HomeBody extends Component {
           homePageShowing={ homePageShowing}
           tweetsShowing={ tweetsShowing}
           followSomeone={ followSomeone }
+          setUserOnSight={ setUserOnSight }
+          userOnSight={ userOnSight }
+          loggedUser={ loggedUser }
         />
       </div>
     );
