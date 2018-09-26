@@ -18,7 +18,12 @@ export const SHOW_LOGIN_PAGE = 'SHOW_LOGIN_PAGE';
 export const SHOW_LOGGED_PAGES = 'SHOW_LOGGED_PAGES';
 export const SET_LOGGED_USER = 'SET_LOGGED_USER';
 export const SET_USER_ON_SIGHT = 'SET_USER_ON_SIGHT';
+export const SET_THREAD_ID = 'SET_THREAD_ID';
 
+export const setThreadId = id => ({
+  type: SET_THREAD_ID,
+  id,
+});
 export const setLoggedUser = userName => ({
   type: SET_LOGGED_USER,
   userName,

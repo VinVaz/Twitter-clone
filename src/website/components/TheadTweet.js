@@ -32,12 +32,7 @@ const UserAction = ({ name, number }) => (
     <span>{ number }</span>
   </button>
 );
-class Tweet extends Component {
-  makeThreadActive = () => {
-    const { showThread, tweet, setThreadId } = this.props;
-    setThreadId(tweet._id);
-    showThread();
-  }
+class ThreadTweet extends Component {
   render() {
     const { tweet } = this.props;
     return (
@@ -57,4 +52,4 @@ class Tweet extends Component {
   }
 }
 
-export default Tweet;
+export default ThreadTweet;

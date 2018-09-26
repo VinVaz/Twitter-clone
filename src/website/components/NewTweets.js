@@ -10,7 +10,7 @@ class NewTweets extends Component {
   render() {
     return (
       <div>
-        <button style={ NewTweetsStyle }>new tweets</button>
+        <button style={NewTweetsStyle}>new tweets</button>
       </div>
     );
   }

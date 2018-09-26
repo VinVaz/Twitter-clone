@@ -1,6 +1,6 @@
 import * as types from '../actions/index';
 
-export const user = (state = {
+const user = (state = {
   loggedUser: '@juaOrtg',
   userOnSight: '@juaOrtg',
 }, action) => {
@@ -24,3 +24,5 @@ export const user = (state = {
       return state;
   }
 };
+
+export default user;

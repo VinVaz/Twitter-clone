@@ -1,6 +1,6 @@
 import * as types from '../actions/index';
 
-export const interaction = (state = {
+const interaction = (state = {
   likeButtonPressed: false,
   replyTweetPressed: false,
   retweetPressed: false,
@@ -31,3 +31,5 @@ export const interaction = (state = {
       return state;
   }
 };
+
+export default interaction;

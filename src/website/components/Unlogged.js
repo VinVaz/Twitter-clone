@@ -38,10 +38,10 @@ class Unlogged extends Component {
   render() {
     const { showLoginPage } = this.props;
     return (
-      <div style={ ContainerStyle }>
+      <div style={ContainerStyle}>
         <h1>Join Twitter today</h1>
-        <button style={ SignUpButtonStyle }>Sign Up</button>
-        <button style={ LogInButtonStyle } onClick={ showLoginPage }>Log in</button>
+        <button style={SignUpButtonStyle}>Sign Up</button>
+        <button style={LogInButtonStyle} onClick={showLoginPage}>Log in</button>
       </div>
     );
   }

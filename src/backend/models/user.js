@@ -1,6 +1,7 @@
-'use strict';
+
 
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -17,7 +18,7 @@ const UserSchema = new Schema({
       picture: String,
       userName: String,
       name: String,
-    }
+    },
   },
   tweets: [{
     time: Date,
@@ -26,12 +27,12 @@ const UserSchema = new Schema({
     numberOfReplies: Number,
     numberOfRetweets: Number,
   }],
-  replies:[{
-      _id: false,
-      identification: Schema.Types.ObjectId,
-      time: Date,
-      content: String,
-      likes: Number,
+  replies: [{
+    _id: false,
+    identification: Schema.Types.ObjectId,
+    time: Date,
+    content: String,
+    likes: Number,
   }],
   following: [{
     _id: false,

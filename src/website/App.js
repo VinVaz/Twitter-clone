@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Pages from './components/Pages';
 
-class App extends Component {   
+class App extends Component {
   render() {
     const {
       profileBoxShowing,
@@ -31,37 +31,43 @@ class App extends Component {
       setLoggedUser,
       userOnSight,
       loggedUser,
+      threadId,
+      setThreadId,
     } = this.props;
 
-    return (<Pages
-      profileBoxShowing={ profileBoxShowing }
-      handleProfileBox={ handleProfileBox }
-      threadShowing={ threadShowing }
-      showThread= { showThread }
-      backgroundIsHidden = { backgroundIsHidden }
-      showBackground={ showBackground }
-      showCreateNewTweet={ showCreateNewTweet }
-      createNewTweetIsShowing={ createNewTweetIsShowing }
-      followingShowing={ followingShowing}
-      followersShowing={ followersShowing}
-      homePageShowing={ homePageShowing}
-      tweetsShowing={ tweetsShowing}
-      loginPageShowing={ loginPageShowing }
-      unloggedPageShowing={ unloggedPageShowing }
-      showTweets={ showTweets}
-      showFollowing={ showFollowing}
-      showFollowers={ showFollowers}
-      showHomePage={ showHomePage}
-      showLoginPage={ showLoginPage }
-      showUnloggedPage={ showUnloggedPage }
-      loggedPagesShowing= { loggedPagesShowing }
-      showLoggedPages={ showLoggedPages }
-      followSomeone={ followSomeone }
-      setUserOnSight={ setUserOnSight }
-      setLoggedUser={ setLoggedUser }
-      userOnSight={ userOnSight }
-      loggedUser={ loggedUser }
-    />);
+    return (
+      <Pages
+        profileBoxShowing={profileBoxShowing}
+        handleProfileBox={handleProfileBox}
+        threadShowing={threadShowing}
+        showThread={showThread}
+        backgroundIsHidden={backgroundIsHidden}
+        showBackground={showBackground}
+        showCreateNewTweet={showCreateNewTweet}
+        createNewTweetIsShowing={createNewTweetIsShowing}
+        followingShowing={followingShowing}
+        followersShowing={followersShowing}
+        homePageShowing={homePageShowing}
+        tweetsShowing={tweetsShowing}
+        loginPageShowing={loginPageShowing}
+        unloggedPageShowing={unloggedPageShowing}
+        showTweets={showTweets}
+        showFollowing={showFollowing}
+        showFollowers={showFollowers}
+        showHomePage={showHomePage}
+        showLoginPage={showLoginPage}
+        showUnloggedPage={showUnloggedPage}
+        loggedPagesShowing={loggedPagesShowing}
+        showLoggedPages={showLoggedPages}
+        followSomeone={followSomeone}
+        setUserOnSight={setUserOnSight}
+        setLoggedUser={setLoggedUser}
+        userOnSight={userOnSight}
+        loggedUser={loggedUser}
+        threadId={threadId}
+        setThreadId={setThreadId}
+      />
+    );
   }
 }
 

@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import TweetInputBox from './TweetInputBox';
+import Tweets from './Tweets';
 
 const ContainerStyle = {
+  backgroundColor: '#ababab',
   position: 'absolute',
-  top: '150px',
+  top: '100px',
   left: '250px',
   width: '600px',
 };
-const headerStyle = {
-  height: '20px',
-  padding: '10px',
-  textAlign: 'center',
-  backgroundColor: '#fff',
-};
-class CreateNewTweet extends Component {
+
+class Thread extends Component {
+  
   render() {
+    const { threadId } = this.props;
+  const myUrl = `api/thread/${ threadId }/replies`;
     return (
       <div style={ContainerStyle}>
-        <div style={headerStyle}>Compose a new Tweet</div>
         <TweetInputBox />
+        <Tweets url = { myUrl } />
       </div>
     );
   }
 }
 
-export default CreateNewTweet;
+export default Thread;

@@ -7,7 +7,7 @@ import ProfileView from './ProfileView';
 
 const ContainerStyle = {
   position: 'fixed',
-  boxSizing:'border-box',
+  boxSizing: 'border-box',
   height: '50px',
   backgroundColor: '#4f5368',
   padding: '5px',
@@ -16,7 +16,7 @@ const ContainerStyle = {
 };
 const HomeBoxStyle = {
   width: '120px',
-  flexShrink:'0',
+  flexShrink: '0',
   textAlign: 'center',
   margin: 'auto',
 };
@@ -24,7 +24,7 @@ const SearchBoxStyle = {
   minWidth: '300px',
   width: '58vw',
   textAlign: 'center',
-  flexShrink:'1',
+  flexShrink: '1',
   margin: 'auto',
 };
 const ProfileBoxStyle = {
@@ -49,23 +49,25 @@ class Header extends Component {
       showUnloggedPage,
       showHomePage,
     } = this.props;
-    
+
     return (
-      <div style={ ContainerStyle }>
+      <div style={ContainerStyle}>
         <div style={HomeBoxStyle}>
-          <HeaderHomeButton showHomePage={ showHomePage }/>
+          <HeaderHomeButton showHomePage={showHomePage} />
         </div>
         <div style={SearchBoxStyle}>
           <HeaderSearcher />
         </div>
         <div style={ProfileBoxStyle}>
-          <HeaderProfileButton handleProfileBox={ handleProfileBox }/>
-          {profileBoxShowing ? <ProfileView 
-            showUnloggedPage={ showUnloggedPage }
-          />: null }
+          <HeaderProfileButton handleProfileBox={handleProfileBox} />
+          {profileBoxShowing ? (
+            <ProfileView
+              showUnloggedPage={showUnloggedPage}
+            />
+          ) : null }
         </div>
         <div style={TweetBoxStyle}>
-          <HeaderTweetButton showCreateNewTweet={ showCreateNewTweet }/>
+          <HeaderTweetButton showCreateNewTweet={showCreateNewTweet} />
         </div>
       </div>
     );

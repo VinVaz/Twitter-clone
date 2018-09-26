@@ -32,39 +32,49 @@ class Pages extends Component {
       setUserOnSight,
       userOnSight,
       loggedUser,
+      threadId,
+      setThreadId,
     } = this.props;
-    
+
     return (
       <div>
-        {unloggedPageShowing ? <Unlogged 
-          showLoginPage={showLoginPage}
-        /> : null}
-        {loginPageShowing ? <Login
-          showLoggedPages={ showLoggedPages }
-        /> : null}
-        {loggedPagesShowing ? <Home
-          profileBoxShowing={ profileBoxShowing }
-          handleProfileBox={ handleProfileBox }
-          threadShowing={ threadShowing }
-          showThread= { showThread }
-          backgroundIsHidden = { backgroundIsHidden }
-          showBackground={ showBackground }
-          showCreateNewTweet={ showCreateNewTweet }
-          createNewTweetIsShowing={ createNewTweetIsShowing }
-          followingShowing={ followingShowing}
-          followersShowing={ followersShowing}
-          homePageShowing={ homePageShowing}
-          tweetsShowing={ tweetsShowing}
-          showHomePage={ showHomePage}
-          showTweets={ showTweets}
-          showFollowing={ showFollowing}
-          showFollowers={ showFollowers}
-          showUnloggedPage={ showUnloggedPage }
-          followSomeone={ followSomeone }
-          setUserOnSight={ setUserOnSight }
-          userOnSight={ userOnSight }
-          loggedUser={ loggedUser }
-        /> : null}
+        {unloggedPageShowing ? (
+          <false
+            showLoginPage={showLoginPage}
+          />
+        ) : null}
+        {false ? (
+          <Login
+            showLoggedPages={showLoggedPages}
+          />
+        ) : null}
+        {true ? (
+          <Home
+            profileBoxShowing={profileBoxShowing}
+            handleProfileBox={handleProfileBox}
+            threadShowing={threadShowing}
+            showThread={showThread}
+            backgroundIsHidden={backgroundIsHidden}
+            showBackground={showBackground}
+            showCreateNewTweet={showCreateNewTweet}
+            createNewTweetIsShowing={createNewTweetIsShowing}
+            followingShowing={followingShowing}
+            followersShowing={followersShowing}
+            homePageShowing={homePageShowing}
+            tweetsShowing={tweetsShowing}
+            showHomePage={showHomePage}
+            showTweets={showTweets}
+            showFollowing={showFollowing}
+            showFollowers={showFollowers}
+            showUnloggedPage={showUnloggedPage}
+            followSomeone={followSomeone}
+            setUserOnSight={setUserOnSight}
+            userOnSight={userOnSight}
+            loggedUser={loggedUser}
+            threadId={threadId}
+            setThreadId={setThreadId}
+          />
+        ) : null}
       </div>
     );
   }

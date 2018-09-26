@@ -21,11 +21,13 @@ import {
   showCreateNewTweet,
   setUserOnSight,
   setLoggedUser,
+  setThreadId,
 } from '../actions';
 
 const mapStateToProps = state => ({
   tweet: state.tweet,
   search: state.search,
+  threadId: state.threadId,
   likeButtonPressed: state.interaction.likeButtonPressed,
   replyTweetPressed: state.interaction.replyTweetPressed,
   retweetPressed: state.interaction.retweetPressed,
@@ -50,6 +52,7 @@ const mapDispatchToProps = dispatch => ({
   searchTwitter: text => dispatch(searchTwitter(text)),
   setUserOnSight: userName => dispatch(setUserOnSight(userName)),
   setLoggedUser: userName => dispatch(setLoggedUser(userName)),
+  setThreadId: id => dispatch(setThreadId(id)),
   showTweets: () => dispatch(showTweets()),
   showHomePage: () => dispatch(showHomePage()),
   showFollowing: () => dispatch(showFollowing()),

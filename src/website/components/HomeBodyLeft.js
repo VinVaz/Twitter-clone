@@ -17,12 +17,12 @@ class HomeBodyLeft extends Component {
       userOnSight,
     } = this.props;
     return (
-      <div style={ HomeBodyLeftStyle }>
-        <ProfileUserBox 
-          showTweets={ showTweets}
-          showFollowing={ showFollowing}
-          showFollowers={ showFollowers}
-          userOnSight={ userOnSight }
+      <div style={HomeBodyLeftStyle}>
+        <ProfileUserBox
+          showTweets={showTweets}
+          showFollowing={showFollowing}
+          showFollowers={showFollowers}
+          userOnSight={userOnSight}
         />
       </div>
     );

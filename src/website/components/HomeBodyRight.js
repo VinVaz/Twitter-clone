@@ -12,7 +12,7 @@ const ContainerStyle = {
 
 class HomeBodyRight extends Component {
   render() {
-    const { 
+    const {
       showThread,
       followingShowing,
       followersShowing,
@@ -21,30 +21,41 @@ class HomeBodyRight extends Component {
       followSomeone,
       setUserOnSight,
       userOnSight,
+      setThreadId,
     } = this.props;
     return (
-      <div style={ ContainerStyle }>
-        {homePageShowing ? <TweetsSpace
-          showThread={ showThread }
-          ownershipOfTweets={ 'following' }
-          userName={ userOnSight }
-        /> : null}
-        {tweetsShowing ? <TweetsSpace 
-          showThread={ showThread }
-          ownershipOfTweets={ 'user' }
-          userName={ userOnSight }
-        /> : null}
-        {followersShowing ? <UsersSpace
-          typeOfUsers={ 'followers' }
-          followSomeone={ followSomeone }
-          userName={ userOnSight }
-          setUserOnSight={ setUserOnSight }
-          /> : null}
-        {followingShowing ? <UsersSpace
-          typeOfUsers={ 'following' }
-          userName={ userOnSight }
-          setUserOnSight={ setUserOnSight }
-        /> : null}
+      <div style={ContainerStyle}>
+        {homePageShowing ? (
+          <TweetsSpace
+            showThread={showThread}
+            homePageShowing={homePageShowing}
+            userName={userOnSight}
+            setThreadId={setThreadId}
+          />
+        ) : null}
+        {tweetsShowing ? (
+          <TweetsSpace
+            showThread={showThread}
+            tweetsShowing={tweetsShowing}
+            userName={userOnSight}
+            setThreadId={setThreadId}
+          />
+        ) : null}
+        {followersShowing ? (
+          <UsersSpace
+            typeOfUsers="followers"
+            followSomeone={followSomeone}
+            userName={userOnSight}
+            setUserOnSight={setUserOnSight}
+          />
+        ) : null}
+        {followingShowing ? (
+          <UsersSpace
+            typeOfUsers="following"
+            userName={userOnSight}
+            setUserOnSight={setUserOnSight}
+          />
+        ) : null}
       </div>
     );
   }

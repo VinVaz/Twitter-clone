@@ -1,13 +1,12 @@
 import * as types from '../actions/index';
 
 const resetState = {
-  homePageShowing: false,
-  tweetsShowing: false,
-  followingShowing: false,
-  followersShowing: false,
+  loginPageShowing: false,
+  loggedPagesShowing: false,
+  unloggedPageShowing: false,
 };
 
-export const mainPages = (state = {
+const mainPages = (state = {
   loginPageShowing: false,
   loggedPagesShowing: false,
   unloggedPageShowing: true,
@@ -32,3 +31,5 @@ export const mainPages = (state = {
       return state;
   }
 };
+
+export default mainPages;

@@ -1,6 +1,6 @@
 import * as types from '../actions/index';
 
-export const search = (state = '', action) => {
+const search = (state = '', action) => {
   switch (action.type) {
     case types.SEARCH_TWITTER:
       return action.name;
@@ -8,3 +8,5 @@ export const search = (state = '', action) => {
       return state;
   }
 };
+
+export default search;

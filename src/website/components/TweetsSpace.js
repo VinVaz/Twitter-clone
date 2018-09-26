@@ -8,7 +8,7 @@ class TweetsSpace extends Component {
     hasNewTweets: true,
   }
   TweetsBox() {
-    const { showThread, userName } = this.props;
+    const { showThread, userName, setThreadId } = this.props;
     const myUrl = `/api/${userName}/following/tweets`;
     return (
       <div>
@@ -16,24 +16,26 @@ class TweetsSpace extends Component {
         {this.state.hasNewTweets ? <NewTweets /> : null }
         <Tweets 
           showThread={ showThread }
+          setThreadId={setThreadId}
           url = { myUrl }
         />
       </div>
     );
   }
   userTweets() {
-    const { showThread, userName } = this.props;
+    const { showThread, userName, setThreadId } = this.props;
     return (<Tweets 
       showThread={ showThread }
+      setThreadId={setThreadId}
       url = { `/api/${userName}/tweets` }
     />);
   }
   render() {
-  const { ownershipOfTweets } = this.props;
+  const { tweetsShowing, homePageShowing } = this.props;
     return (
       <div>
-        {ownershipOfTweets == 'user' ? this.userTweets() : null}
-        {ownershipOfTweets == 'following' ? this.TweetsBox() : null}
+        {tweetsShowing ? this.userTweets() : null}
+        {homePageShowing ? this.TweetsBox() : null}
       </div>
     );
   }

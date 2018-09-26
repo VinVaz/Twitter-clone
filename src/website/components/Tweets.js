@@ -29,14 +29,16 @@ class Tweets extends Component {
     }
   }
   generateTweets() {
-    const { showThread } = this.props;
+    const { showThread, setThreadId } = this.props;
     const { tweets } = this.state;
     let myTweets = [];
     for(let i = 0; i < tweets.length; i++){
-      myTweets.push(<Tweet showThread={ showThread }
-                           key={i}
-                           tweet={ tweets[i] }
-                    />);
+      myTweets.push(
+        <Tweet showThread={ showThread } setThreadId={setThreadId}
+          key={i}
+          tweet={ tweets[i] }
+        />
+      );
     }
     return myTweets;
   }

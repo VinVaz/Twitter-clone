@@ -1,16 +1,18 @@
-import { tweet } from '../website/reducers/tweet';
-import { search } from '../website/reducers/search';
-import { user } from '../website/reducers/user';
-import { mainPages } from '../website/reducers/mainPages';
-import { loggedPage } from '../website/reducers/loggedPage';
-import { getUsers } from '../website/reducers/getUsers';
-import { interaction } from '../website/reducers/interaction';
+import tweet from '../website/reducers/tweet';
+import search from '../website/reducers/search';
+import threadId from '../website/reducers/threadId';
+import user from '../website/reducers/user';
+import mainPages from '../website/reducers/mainPages';
+import loggedPage from '../website/reducers/loggedPage';
+import getUsers from '../website/reducers/getUsers';
+import interaction from '../website/reducers/interaction';
 import view from '../website/reducers/view';
 import reducers from '../website/reducers/index';
 import * as actions from '../website/actions/index';
 
 const tweetInitialState = '';
 const searchInitialState = '';
+const threadIdInitialState = '';
 const randomText = 'fowireaspcqowmi';
 const randomName = 'fowipywmi';
 /*
@@ -64,6 +66,7 @@ const reducersInitialState = {
   interaction: interactionInitialState,
   view: viewInitialState,
   user: userInitialState,
+  threadId: threadIdInitialState,
 };
 
 describe('Test reducers', () => {
@@ -85,7 +88,15 @@ describe('Test reducers', () => {
       name: randomName,
     })).toEqual(randomName);
   });
-
+  it('threadId should return the initial state', () => {
+    expect(threadId(undefined, {})).toEqual(threadIdInitialState);
+  });
+  it('threadId should handle SET_THREAD_ID', () => {
+    expect(threadId(undefined, {
+      type: actions.SET_THREAD_ID,
+      id: randomText,
+    })).toEqual(randomText);
+  });
   it('view reducer should return the initial state', () => {
     expect(view(undefined, {})).toEqual(viewInitialState);
   });
@@ -104,7 +115,7 @@ describe('Test reducers', () => {
     })).toEqual(combinedState);
   });
   */
-  
+
   it('user reducer should return the initial state', () => {
     expect(user(undefined, {})).toEqual(userInitialState);
   });
@@ -128,7 +139,7 @@ describe('Test reducers', () => {
       userName: randomName,
     })).toEqual(combinedState);
   });
-  
+
   it('mainPages reducer should start with unloggedPageShowing:true', () => {
     const combinedState = {
       ...mainPagesInitialState,
@@ -207,7 +218,7 @@ describe('Test reducers', () => {
       type: actions.SHOW_THREAD,
     })).toEqual(combinedState);
   });
-   it('loggedPage reducer should handle SHOW_HOMEPAGE', () => {
+  it('loggedPage reducer should handle SHOW_HOMEPAGE', () => {
     const combinedState = {
       ...loggedPageInitialState,
       homePageShowing: true,
@@ -254,7 +265,7 @@ describe('Test reducers', () => {
       type: actions.SHOW_CREATENEWTWEET,
     })).toEqual(combinedState);
   });
-  
+
   it('interaction reducer should return the initial state', () => {
     expect(interaction(undefined, {})).toEqual(interactionInitialState);
   });

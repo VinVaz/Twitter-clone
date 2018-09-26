@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TweetInput from './TweetInput'
+import TweetInput from './TweetInput';
 
 class TweetInputBox extends Component {
   returnTweetInput() {
@@ -9,6 +9,7 @@ class TweetInputBox extends Component {
       </div>
     );
   }
+
   render() {
     return (
       <div>

@@ -9,7 +9,7 @@ class HeaderSearcher extends Component {
   render() {
     return (
       <form>
-        <input type='text' placeholder='Tweet' style={ SearcherStyle }/>
+        <input type="text" placeholder="Tweet" style={SearcherStyle} />
       </form>
     );
   }

@@ -18,12 +18,12 @@ const TextAreaContainerStyle = {
   height: '80px',
   right: '50px',
   top: '10px',
-}
+};
 const TextAreaStyle = {
   boxSizing: 'border-box',
   width: '100%',
   height: '100%',
-  padding: '10px 15px',  
+  padding: '10px 15px',
   borderRadius: '10px',
   border: 'none',
 };
@@ -44,14 +44,14 @@ const TweetStyle = {
 class TweetInputBox extends Component {
   render() {
     return (
-      <div style={ ContainerStyle }>
-        <div style={ BodyStyle }>
-          <div style={ UserPhotoStyle }>{`user's photo`}</div>
-          <div style={ TextAreaContainerStyle } >
-            <textarea type="text" style={ TextAreaStyle } placeholder='new tweet'/>
+      <div style={ContainerStyle}>
+        <div style={BodyStyle}>
+          <div style={UserPhotoStyle}>user's photo</div>
+          <div style={TextAreaContainerStyle}>
+            <textarea type="text" style={TextAreaStyle} placeholder="new tweet" />
           </div>
         </div>
-        <div style={ FooterStyle }>
+        <div style={FooterStyle}>
           <button style={TweetStyle}>Tweet</button>
         </div>
       </div>

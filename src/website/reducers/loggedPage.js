@@ -1,13 +1,13 @@
 import * as types from '../actions/index';
 
-export const loggedPage = (state = {
+const loggedPage = (state = {
   profileBoxShowing: false,
   threadShowing: false,
   newTweetsButtonShowing: false,
   backgroundIsHidden: false,
   createNewTweetIsShowing: false,
 }, action) => {
-  switch (action.type) {   
+  switch (action.type) {
     case types.SHOW_THREAD:
       return {
         ...state,
@@ -22,9 +22,9 @@ export const loggedPage = (state = {
           backgroundIsHidden: false,
           createNewTweetIsShowing: false,
         };
-      } else {
-        return state;
       }
+      return state;
+
     case types.SHOW_CREATENEWTWEET:
       return {
         ...state,
@@ -45,3 +45,5 @@ export const loggedPage = (state = {
       return state;
   }
 };
+
+export default loggedPage;

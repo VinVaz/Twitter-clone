@@ -15,7 +15,8 @@ it('react should render the aplication', () => {
 });
 
 describe('react and redux integration', () => {
-  let wrapper, store;
+  let wrapper; let
+    store;
   beforeEach(() => {
     store = mockStore(initialState);
     wrapper = shallow(<Provider store={store}><App /></Provider>);

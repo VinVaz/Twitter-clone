@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import HomeBody from './HomeBody';
 import Tweets from './Tweets';
+import Thread from './Thread';
 import CreateNewTweet from './CreateNewTweet';
 
 const FocusedStyle = {
@@ -9,13 +10,6 @@ const FocusedStyle = {
   position: 'relative',
   width: '100vw',
   height: '100vh',
-}
-const TweetsContainerStyle = {
-  position: 'absolute',
-  top: '50px',
-  left: '25%',
-  width: '500px',
-  zIndex: '3',
 };
 const UnfocusedStyle = {
   filter: 'brightness(50%)',
@@ -23,14 +17,8 @@ const UnfocusedStyle = {
   backgroundColor: '#f2f3ff',
   width: '100vw',
   height: '100vh',
-}
-const Thread = () => {
-  return(
-    <div style={TweetsContainerStyle}>
-      <Tweets />
-    </div>
-  );
-}
+};
+
 class Home extends Component {
   render() {
     const {
@@ -55,33 +43,37 @@ class Home extends Component {
       setUserOnSight,
       userOnSight,
       loggedUser,
+      threadId,
+      setThreadId,
     } = this.props;
+    
     return (
       <div>
-        <div style={ backgroundIsHidden ? UnfocusedStyle : FocusedStyle } onClickCapture={showBackground}>
+        <div style={backgroundIsHidden ? UnfocusedStyle : FocusedStyle} onClickCapture={showBackground}>
           <Header
-            profileBoxShowing={ profileBoxShowing }
-            handleProfileBox={ handleProfileBox }
-            showCreateNewTweet={ showCreateNewTweet }
-            showHomePage={ showHomePage}
-            showUnloggedPage={ showUnloggedPage }
+            profileBoxShowing={profileBoxShowing}
+            handleProfileBox={handleProfileBox}
+            showCreateNewTweet={showCreateNewTweet}
+            showHomePage={showHomePage}
+            showUnloggedPage={showUnloggedPage}
           />
-          <HomeBody 
-            showThread={ showThread }
-            followingShowing={ followingShowing}
-            followersShowing={ followersShowing}
-            tweetsShowing={ tweetsShowing}
-            homePageShowing={ homePageShowing}
-            showTweets={ showTweets}
-            showFollowing={ showFollowing}
-            showFollowers={ showFollowers}
-            followSomeone={ followSomeone }
-            setUserOnSight={ setUserOnSight }
-            userOnSight={ userOnSight }
-            loggedUser={ loggedUser }
+          <HomeBody
+            showThread={showThread}
+            followingShowing={followingShowing}
+            followersShowing={followersShowing}
+            tweetsShowing={tweetsShowing}
+            homePageShowing={homePageShowing}
+            showTweets={showTweets}
+            showFollowing={showFollowing}
+            showFollowers={showFollowers}
+            followSomeone={followSomeone}
+            setUserOnSight={setUserOnSight}
+            userOnSight={userOnSight}
+            loggedUser={loggedUser}
+            setThreadId={setThreadId}
           />
         </div>
-        {threadShowing ? <Thread /> : null}
+        {threadShowing ? <Thread threadId={threadId}/> : null}
         {createNewTweetIsShowing ? <CreateNewTweet /> : null}
       </div>
     );

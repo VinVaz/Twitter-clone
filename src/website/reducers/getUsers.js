@@ -7,7 +7,7 @@ const resetState = {
   followersShowing: false,
 };
 
-export const getUsers = (state = {
+const getUsers = (state = {
   homePageShowing: true,
   tweetsShowing: false,
   followingShowing: false,
@@ -38,3 +38,5 @@ export const getUsers = (state = {
       return state;
   }
 };
+
+export default getUsers;
